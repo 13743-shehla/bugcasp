@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+*.private.env
+.vercel/
+.venv/
+__pycache__/
+.pytest_cache/
+*.db
+*.db-*
+.jwt-secret
+uploads/*
+!uploads/.gitkeep
+email-outbox.log

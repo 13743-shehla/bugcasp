@@ -5,6 +5,20 @@
   <meta name="description" content="BugCasp — təhlükəsizlik tədqiqatçıları və şirkətlər üçün bug bounty platforması.">
   <title>BugCasp — Təhlükəsizlik platforması</title>
   <link rel="icon" href="/static/logo.png" type="image/png">
+  <style>
+    .app-shell[hidden]{display:none!important}
+    #startup-screen{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(ellipse at center,#e0f4fa,#f6fafb 65%);color:#17364c;font-family:Inter,"Segoe UI",sans-serif;text-align:center}
+    #startup-screen[hidden]{display:none}
+    .startup-mark{position:relative;width:116px;height:116px;margin:0 auto 28px;display:grid;place-items:center}
+    .startup-mark:before{content:'';position:absolute;inset:0;border:2px solid #079dcc20;border-top-color:#079dcc;border-radius:50%;animation:startup-spin 1.8s linear infinite}
+    .startup-mark img{width:59px;height:74px;object-fit:cover;border-radius:10px}
+    .startup-name{font-size:30px;font-weight:800;letter-spacing:-1px}.startup-name span{color:#099bc5}
+    .startup-message{margin:12px 0 0;font-size:13px;letter-spacing:.3px;color:#607b90}
+    [data-theme=dark] #startup-screen{background:radial-gradient(ellipse at center,#103448,#0c1928 65%);color:#e3f1fa}
+    [data-theme=dark] .startup-message{color:#a4bdcc}
+    @keyframes startup-spin{to{transform:rotate(360deg)}}
+    @media(prefers-reduced-motion:reduce){.startup-mark:before{animation:none}}
+  </style>
   <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="/static/tailwind-config.js" defer></script>
   <script src="/static/i18n.js"></script>
@@ -13,7 +27,8 @@
   <script src="/static/config.js" defer></script><script src="/static/landing.js" defer></script><script src="/static/app.js" defer></script>
 </head>
 <body>
-<div class="app-shell">
+<div id="startup-screen" role="status" aria-live="polite"><div><div class="startup-mark" aria-hidden="true"><img src="/static/logo.png" alt=""></div><div class="startup-name" translate="no">Bug<span>Casp</span></div><p class="startup-message">Yüklənir…</p><noscript><p>BugCasp üçün JavaScript-i aktivləşdirin.</p></noscript></div></div>
+<div class="app-shell" hidden>
   <aside class="sidebar">
     <a class="brand" href="#programs"><img src="/static/logo.png" alt=""><span>Bug<span class="cyan">Casp</span><small>SECURITY COMMUNITY</small></span></a>
     <div class="workspace-label">İŞ SAHƏSİ</div>

@@ -29,7 +29,7 @@ let demoPending = [{...seedPrograms[3],id:5,title:'Orbit API',is_approved:false,
 const demoLeaders = [{username:'zeroday_az',reputation_score:8420,resolved_bugs:48,bio:'Web & API security'}, {username:'cipher',reputation_score:7150,resolved_bugs:39,bio:'Cloud security researcher'}, {username:'caspian_hunter',reputation_score:4280,resolved_bugs:26,bio:'Application security'}, {username:'nullbyte',reputation_score:3890,resolved_bugs:21,bio:'Security researcher'}, {username:'n1ghtwatch',reputation_score:2650,resolved_bugs:17,bio:'Infrastructure security'}];
 
 async function api(path, options={}) {
-  const init = {...options,credentials:'same-origin',headers:{...(options.body instanceof FormData ? {} : {'Content-Type':'application/json'}),...options.headers}};
+  const init = {signal:AbortSignal.timeout(20000),...options,credentials:'same-origin',headers:{...(options.body instanceof FormData ? {} : {'Content-Type':'application/json'}),...options.headers}};
   if(init.body && !(init.body instanceof FormData) && typeof init.body !== 'string') init.body=JSON.stringify(init.body);
   let response;try{response=await fetch('/api'+path,init);}catch{throw new Error('Bağlantı alınmadı. İnternet bağlantınızı yoxlayın.');}
   const data=await response.json().catch(()=>({detail:'Server cavabı oxunmadı.'}));
@@ -156,5 +156,5 @@ document.addEventListener('submit',async event=>{const form=event.target;if(!for
   if(form.id==='paid-form'){const id=Number(form.dataset.id);if(PREVIEW)demoReports.find(r=>r.id===id).payout_paid=true;else await api('/company/reports/'+id+'/mark-paid',{method:'POST'});closeModal();await render();toast('Xarici ödəniş qeydə alındı.');}
 }catch(e){if(error?.isConnected)error.textContent=e.message;else toast(e.message);}finally{if(button?.isConnected)button.disabled=false;}});
 window.addEventListener('hashchange',render);
-async function boot(){$('#year').textContent=new Date().getFullYear();if(PREVIEW){$('#preview-notice').hidden=false;setDemoUser('hacker');}else{try{user=await api('/auth/me');}catch{user=null;}}await render();}
+async function boot(){try{$('#year').textContent=new Date().getFullYear();if(PREVIEW){$('#preview-notice').hidden=false;setDemoUser('hacker');}else{try{user=await api('/auth/me');}catch{user=null;}}await render();}finally{$('.app-shell').hidden=false;$('#startup-screen').hidden=true;}}
 boot();

@@ -320,3 +320,40 @@ Bu, interfeys önizləməsidir. Burada real hesab yaradılmır.|This is an inter
 Önizləmə: məktub göndərilmir.|Preview: no email is sent.|Предпросмотр: письмо не отправляется.
 Nümunə hesabat əlavə edildi; səhifə yenilənəndə silinəcək.|Sample report added; it will be removed on reload.|Пример отчёта добавлен; он исчезнет при перезагрузке.
 Yerli sınaq rejimi: məktub email-outbox.log faylına yazıldı. Real e-poçt göndərilmədi.|Local test mode: the email was written to email-outbox.log. No real email was sent.|Локальный тест: письмо записано в email-outbox.log. Реальное письмо не отправлено.
+
+Ana səhifə|Home|Главная
+TƏHLÜKƏSİZLİK BİRLİKDƏ BAŞLAYIR|SECURITY STARTS TOGETHER|БЕЗОПАСНОСТЬ НАЧИНАЕТСЯ ВМЕСТЕ
+Zəifliyi tap.|Find the weakness.|Найди уязвимость.
+Güvəni gücləndir.|Build stronger trust.|Укрепи доверие.
+BugCasp şirkətləri və təhlükəsizlik tədqiqatçılarını bir araya gətirən bug bounty platformasıdır. Tapıntıları məsuliyyətlə paylaşın, rəqəmsal dünyanı daha təhlükəsiz edin.|BugCasp is a bug bounty platform connecting companies with security researchers. Share findings responsibly and make the digital world safer.|BugCasp — платформа bug bounty, объединяющая компании и исследователей безопасности. Ответственно сообщайте об уязвимостях и делайте цифровой мир безопаснее.
+Tədqiqatçı kimi qoşul|Join as a researcher|Стать исследователем
+Şirkətimi qorumaq istəyirəm|Protect my company|Защитить компанию
+Proqramları araşdır|Explore programs|Изучить программы
+Tapıntı|Finding|Находка
+Təsdiq|Validation|Проверка
+Mükafat|Reward|Награда
+İnsan bacarığı. Daha güclü müdafiə.|Human expertise. Stronger defense.|Опыт людей. Более сильная защита.
+İcazəli araşdırma|Authorized research|Разрешённые исследования
+Məxfi hesabatlar|Private reports|Конфиденциальные отчёты
+Şəffaf qiymətləndirmə|Transparent review|Прозрачная оценка
+BİZ KİMİK?|WHO WE ARE|КТО МЫ
+Təhlükəsizliyə ortaq töhfə.|A shared commitment to security.|Общий вклад в безопасность.
+Bir tərəfdə qorunmalı məhsullar, digər tərəfdə zəiflikləri görə bilən insanlar. BugCasp bu əməkdaşlıq üçün ortaq məkan yaradır.|Products that need protecting. People who can spot their weaknesses. BugCasp gives them a place to work together.|Продукты, которым нужна защита, и люди, способные найти их слабые места. BugCasp создаёт пространство для их сотрудничества.
+Bacarığını real təsirə çevir.|Turn your skills into real impact.|Преврати навыки в результат.
+İcazəli proqramları seç, qaydaları oxu və tapdığın zəifliyi sübut faylı ilə bildir. Təsdiqlənmiş hesabatlarla reputasiya və proqramın şərtlərinə uyğun mükafat qazan.|Choose authorized programs, read the rules and submit findings with evidence. Earn reputation and rewards for validated reports under each program’s terms.|Выбирай разрешённые программы, читай правила и отправляй отчёты с доказательствами. Получай репутацию и награды за подтверждённые отчёты по условиям программы.
+Tədqiqatçı hesabı yarat|Create a researcher account|Создать аккаунт исследователя
+Məhsuluna yeni gözlə bax.|See your product with fresh eyes.|Взгляни на продукт по-новому.
+Proqramını yarat, araşdırma sərhədlərini və mükafatları müəyyən et. Gələn hesabatları bir yerdə yoxla, qiymətləndir və həll prosesini idarə et.|Create a program, define its scope and set rewards. Review incoming reports in one place and manage them through resolution.|Создай программу, определи границы исследования и награды. Проверяй отчёты в одном месте и управляй процессом устранения уязвимостей.
+Şirkət hesabı yarat|Create a company account|Создать аккаунт компании
+NECƏ İŞLƏYİR?|HOW IT WORKS|КАК ЭТО РАБОТАЕТ
+Tapıntıdan həllə, üç addım.|From finding to fix in three steps.|От находки до решения за три шага.
+Proqramı seç|Choose a program|Выбери программу
+Hədəfləri, icazə verilən testləri və proqramın qaydalarını öyrən.|Review the targets, permitted tests and program rules.|Изучи цели, разрешённые тесты и правила программы.
+Hesabatını göndər|Submit your report|Отправь отчёт
+Tapıntını adlandır, kateqoriyanı seç və sübut faylını əlavə et.|Name your finding, choose a category and attach your evidence.|Назови находку, выбери категорию и приложи доказательства.
+Nəticəni izlə|Track the outcome|Следи за результатом
+Şirkətin baxışını, hesabatın statusunu və təsdiqlənmiş mükafatını hesabından izlə.|Follow the company’s review, report status and approved reward from your account.|Отслеживай проверку компанией, статус отчёта и подтверждённую награду в аккаунте.
+NÖVBƏTİ ADDIM SƏNİNDİR|YOUR NEXT MOVE|СЛЕДУЮЩИЙ ШАГ ЗА ТОБОЙ
+Daha təhlükəsiz gələcəyə qoşul.|Be part of a safer future.|Стань частью безопасного будущего.
+İstər zəiflikləri tap, istər məhsulunu qoru.|Find vulnerabilities or protect your product.|Находи уязвимости или защищай свой продукт.
+İndi hesab yarat|Create your account|Создать аккаунт

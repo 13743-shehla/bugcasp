@@ -1830,6 +1830,186 @@ const messages = {
     "az": "Başqa saytdan göndərilən sorğulara icazə verilmir.",
     "en": "Cross-origin requests are not allowed.",
     "ru": "Запросы с другого сайта запрещены."
+  },
+  "Ana səhifə": {
+    "az": "Ana səhifə",
+    "en": "Home",
+    "ru": "Главная"
+  },
+  "TƏHLÜKƏSİZLİK BİRLİKDƏ BAŞLAYIR": {
+    "az": "TƏHLÜKƏSİZLİK BİRLİKDƏ BAŞLAYIR",
+    "en": "SECURITY STARTS TOGETHER",
+    "ru": "БЕЗОПАСНОСТЬ НАЧИНАЕТСЯ ВМЕСТЕ"
+  },
+  "Zəifliyi tap.": {
+    "az": "Zəifliyi tap.",
+    "en": "Find the weakness.",
+    "ru": "Найди уязвимость."
+  },
+  "Güvəni gücləndir.": {
+    "az": "Güvəni gücləndir.",
+    "en": "Build stronger trust.",
+    "ru": "Укрепи доверие."
+  },
+  "BugCasp şirkətləri və təhlükəsizlik tədqiqatçılarını bir araya gətirən bug bounty platformasıdır. Tapıntıları məsuliyyətlə paylaşın, rəqəmsal dünyanı daha təhlükəsiz edin.": {
+    "az": "BugCasp şirkətləri və təhlükəsizlik tədqiqatçılarını bir araya gətirən bug bounty platformasıdır. Tapıntıları məsuliyyətlə paylaşın, rəqəmsal dünyanı daha təhlükəsiz edin.",
+    "en": "BugCasp is a bug bounty platform connecting companies with security researchers. Share findings responsibly and make the digital world safer.",
+    "ru": "BugCasp — платформа bug bounty, объединяющая компании и исследователей безопасности. Ответственно сообщайте об уязвимостях и делайте цифровой мир безопаснее."
+  },
+  "Tədqiqatçı kimi qoşul": {
+    "az": "Tədqiqatçı kimi qoşul",
+    "en": "Join as a researcher",
+    "ru": "Стать исследователем"
+  },
+  "Şirkətimi qorumaq istəyirəm": {
+    "az": "Şirkətimi qorumaq istəyirəm",
+    "en": "Protect my company",
+    "ru": "Защитить компанию"
+  },
+  "Proqramları araşdır": {
+    "az": "Proqramları araşdır",
+    "en": "Explore programs",
+    "ru": "Изучить программы"
+  },
+  "Tapıntı": {
+    "az": "Tapıntı",
+    "en": "Finding",
+    "ru": "Находка"
+  },
+  "Təsdiq": {
+    "az": "Təsdiq",
+    "en": "Validation",
+    "ru": "Проверка"
+  },
+  "Mükafat": {
+    "az": "Mükafat",
+    "en": "Reward",
+    "ru": "Награда"
+  },
+  "İnsan bacarığı. Daha güclü müdafiə.": {
+    "az": "İnsan bacarığı. Daha güclü müdafiə.",
+    "en": "Human expertise. Stronger defense.",
+    "ru": "Опыт людей. Более сильная защита."
+  },
+  "İcazəli araşdırma": {
+    "az": "İcazəli araşdırma",
+    "en": "Authorized research",
+    "ru": "Разрешённые исследования"
+  },
+  "Məxfi hesabatlar": {
+    "az": "Məxfi hesabatlar",
+    "en": "Private reports",
+    "ru": "Конфиденциальные отчёты"
+  },
+  "Şəffaf qiymətləndirmə": {
+    "az": "Şəffaf qiymətləndirmə",
+    "en": "Transparent review",
+    "ru": "Прозрачная оценка"
+  },
+  "BİZ KİMİK?": {
+    "az": "BİZ KİMİK?",
+    "en": "WHO WE ARE",
+    "ru": "КТО МЫ"
+  },
+  "Təhlükəsizliyə ortaq töhfə.": {
+    "az": "Təhlükəsizliyə ortaq töhfə.",
+    "en": "A shared commitment to security.",
+    "ru": "Общий вклад в безопасность."
+  },
+  "Bir tərəfdə qorunmalı məhsullar, digər tərəfdə zəiflikləri görə bilən insanlar. BugCasp bu əməkdaşlıq üçün ortaq məkan yaradır.": {
+    "az": "Bir tərəfdə qorunmalı məhsullar, digər tərəfdə zəiflikləri görə bilən insanlar. BugCasp bu əməkdaşlıq üçün ortaq məkan yaradır.",
+    "en": "Products that need protecting. People who can spot their weaknesses. BugCasp gives them a place to work together.",
+    "ru": "Продукты, которым нужна защита, и люди, способные найти их слабые места. BugCasp создаёт пространство для их сотрудничества."
+  },
+  "Bacarığını real təsirə çevir.": {
+    "az": "Bacarığını real təsirə çevir.",
+    "en": "Turn your skills into real impact.",
+    "ru": "Преврати навыки в результат."
+  },
+  "İcazəli proqramları seç, qaydaları oxu və tapdığın zəifliyi sübut faylı ilə bildir. Təsdiqlənmiş hesabatlarla reputasiya və proqramın şərtlərinə uyğun mükafat qazan.": {
+    "az": "İcazəli proqramları seç, qaydaları oxu və tapdığın zəifliyi sübut faylı ilə bildir. Təsdiqlənmiş hesabatlarla reputasiya və proqramın şərtlərinə uyğun mükafat qazan.",
+    "en": "Choose authorized programs, read the rules and submit findings with evidence. Earn reputation and rewards for validated reports under each program’s terms.",
+    "ru": "Выбирай разрешённые программы, читай правила и отправляй отчёты с доказательствами. Получай репутацию и награды за подтверждённые отчёты по условиям программы."
+  },
+  "Tədqiqatçı hesabı yarat": {
+    "az": "Tədqiqatçı hesabı yarat",
+    "en": "Create a researcher account",
+    "ru": "Создать аккаунт исследователя"
+  },
+  "Məhsuluna yeni gözlə bax.": {
+    "az": "Məhsuluna yeni gözlə bax.",
+    "en": "See your product with fresh eyes.",
+    "ru": "Взгляни на продукт по-новому."
+  },
+  "Proqramını yarat, araşdırma sərhədlərini və mükafatları müəyyən et. Gələn hesabatları bir yerdə yoxla, qiymətləndir və həll prosesini idarə et.": {
+    "az": "Proqramını yarat, araşdırma sərhədlərini və mükafatları müəyyən et. Gələn hesabatları bir yerdə yoxla, qiymətləndir və həll prosesini idarə et.",
+    "en": "Create a program, define its scope and set rewards. Review incoming reports in one place and manage them through resolution.",
+    "ru": "Создай программу, определи границы исследования и награды. Проверяй отчёты в одном месте и управляй процессом устранения уязвимостей."
+  },
+  "Şirkət hesabı yarat": {
+    "az": "Şirkət hesabı yarat",
+    "en": "Create a company account",
+    "ru": "Создать аккаунт компании"
+  },
+  "NECƏ İŞLƏYİR?": {
+    "az": "NECƏ İŞLƏYİR?",
+    "en": "HOW IT WORKS",
+    "ru": "КАК ЭТО РАБОТАЕТ"
+  },
+  "Tapıntıdan həllə, üç addım.": {
+    "az": "Tapıntıdan həllə, üç addım.",
+    "en": "From finding to fix in three steps.",
+    "ru": "От находки до решения за три шага."
+  },
+  "Proqramı seç": {
+    "az": "Proqramı seç",
+    "en": "Choose a program",
+    "ru": "Выбери программу"
+  },
+  "Hədəfləri, icazə verilən testləri və proqramın qaydalarını öyrən.": {
+    "az": "Hədəfləri, icazə verilən testləri və proqramın qaydalarını öyrən.",
+    "en": "Review the targets, permitted tests and program rules.",
+    "ru": "Изучи цели, разрешённые тесты и правила программы."
+  },
+  "Hesabatını göndər": {
+    "az": "Hesabatını göndər",
+    "en": "Submit your report",
+    "ru": "Отправь отчёт"
+  },
+  "Tapıntını adlandır, kateqoriyanı seç və sübut faylını əlavə et.": {
+    "az": "Tapıntını adlandır, kateqoriyanı seç və sübut faylını əlavə et.",
+    "en": "Name your finding, choose a category and attach your evidence.",
+    "ru": "Назови находку, выбери категорию и приложи доказательства."
+  },
+  "Nəticəni izlə": {
+    "az": "Nəticəni izlə",
+    "en": "Track the outcome",
+    "ru": "Следи за результатом"
+  },
+  "Şirkətin baxışını, hesabatın statusunu və təsdiqlənmiş mükafatını hesabından izlə.": {
+    "az": "Şirkətin baxışını, hesabatın statusunu və təsdiqlənmiş mükafatını hesabından izlə.",
+    "en": "Follow the company’s review, report status and approved reward from your account.",
+    "ru": "Отслеживай проверку компанией, статус отчёта и подтверждённую награду в аккаунте."
+  },
+  "NÖVBƏTİ ADDIM SƏNİNDİR": {
+    "az": "NÖVBƏTİ ADDIM SƏNİNDİR",
+    "en": "YOUR NEXT MOVE",
+    "ru": "СЛЕДУЮЩИЙ ШАГ ЗА ТОБОЙ"
+  },
+  "Daha təhlükəsiz gələcəyə qoşul.": {
+    "az": "Daha təhlükəsiz gələcəyə qoşul.",
+    "en": "Be part of a safer future.",
+    "ru": "Стань частью безопасного будущего."
+  },
+  "İstər zəiflikləri tap, istər məhsulunu qoru.": {
+    "az": "İstər zəiflikləri tap, istər məhsulunu qoru.",
+    "en": "Find vulnerabilities or protect your product.",
+    "ru": "Находи уязвимости или защищай свой продукт."
+  },
+  "İndi hesab yarat": {
+    "az": "İndi hesab yarat",
+    "en": "Create your account",
+    "ru": "Создать аккаунт"
   }
 };
 

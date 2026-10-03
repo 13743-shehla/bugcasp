@@ -11,7 +11,7 @@ function highestRewards(rows){const totals={};for(const p of rows.filter(p=>p.bo
 const num = n => Number(n || 0).toLocaleString('en-US');
 const icons = {programs:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',reports:'<path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h5"/>',leaderboard:'<path d="M8 3h8v5a4 4 0 0 1-8 0zM8 5H4v3a4 4 0 0 0 5 3M16 5h4v3a4 4 0 0 1-5 3M12 12v7M7 21h10"/>',company:'<path d="M4 21V8h8v13M12 21V3h8v18M7 11h2M7 15h2M15 7h2M15 11h2M15 15h2M2 21h20"/>',admin:'<path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6zM8 12l3 3 5-6"/>',users:'<circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M17 5a3 3 0 0 1 0 6M18 15a5 5 0 0 1 3 5"/>'};
 const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] || icons.programs}</svg>`;
-const labels = {programs:'Proqramlar',reports:'Hesabatlarım',leaderboard:'Şərəf lövhəsi',company:'Şirkət portalı',admin:'Admin paneli',settings:'Hesab sazlamaları'};
+const labels = {home:'Ana səhifə',programs:'Proqramlar',reports:'Hesabatlarım',leaderboard:'Şərəf lövhəsi',company:'Şirkət portalı',admin:'Admin paneli',settings:'Hesab sazlamaları'};
 const roleLabel = {hacker:'Tədqiqatçı',company:'Şirkət sahibi',superadmin:'Platforma admini'};
 let user = null, route = 'programs', programs = [], reports = [], leaderboard = [], searchTerm = '', bountyFilter = '', renderId = 0, selectedFile = null;
 let resetToken = null;
@@ -46,15 +46,16 @@ function heading(eyebrow,title,subtitle,action=''){return `<div class="page-head
 function metric(label,value,note,ico){return `<div class="metric"><div class="metric-label">${label}</div><div class="metric-value">${value}</div><div class="metric-note">${note}</div><span class="metric-icon">${icon(ico)}</span></div>`;}
 function setDemoUser(role){user=role==='guest'?null:{id:1,username:role==='hacker'?'caspian_hunter':role==='company'?'caspian_team':'bugcasp_admin',role,email:'preview@example.com',reputation_score:4280,is_email_verified:true};}
 function nav(){
-  let items=['programs'];if(user?.role==='hacker')items.push('reports');if(user?.role==='company')items.push('company');if(user?.role==='superadmin')items.push('admin');items.push('leaderboard');if(user)items.push('settings');
+  let items=user?['programs']:['home','programs'];if(user?.role==='hacker')items.push('reports');if(user?.role==='company')items.push('company');if(user?.role==='superadmin')items.push('admin');items.push('leaderboard');if(user)items.push('settings');
   $('#navigation').innerHTML=items.map(k=>`<a href="#${k}" class="nav-item ${route===k?'active':''}" ${route===k?'aria-current="page"':''}>${icon(k)}${labels[k]}</a>`).join('');
   $('#crumb').textContent=labels[route]||'Proqramlar';
   $('#account').innerHTML=user?`<span class="points"><b>✧ ${num(user.reputation_score)}</b> xal</span><span class="avatar">${raw(user.username.slice(0,2).toUpperCase())}</span><div><span class="account-name">${raw(user.username)}</span><span class="account-role">${roleLabel[user.role]}</span></div><button class="text-button" data-action="settings">Sazlamalar</button><button class="text-button" data-action="logout">Çıxış</button>`:`<button class="text-button" data-action="login">Daxil ol</button><button class="btn primary small" data-action="register">Qeydiyyat</button>`;
 }
 async function render(){
-  const ticket=++renderId;route=location.hash.slice(1)||'programs';if(route.startsWith('reset=')){resetToken=route.slice(6);history.replaceState(null,'','#programs');route='programs';resetForm();}if(route.startsWith('verify=')){const token=route.slice(7);history.replaceState(null,'','#programs');route='programs';verifyLink(token);}
-  if(!labels[route])route='programs';nav();$('#main').innerHTML='<div class="empty">Yüklənir…</div>';
+  const ticket=++renderId;route=location.hash.slice(1)||(user?'programs':'home');if(route.startsWith('reset=')){resetToken=route.slice(6);history.replaceState(null,'','#programs');route='programs';resetForm();}if(route.startsWith('verify=')){const token=route.slice(7);history.replaceState(null,'','#programs');route='programs';verifyLink(token);}
+  if(!labels[route])route=user?'programs':'home';document.body.classList.toggle('landing-mode',route==='home');nav();$('#main').innerHTML='<div class="empty">Yüklənir…</div>';
   try{
+    if(route==='home'){renderLanding();}
     if(route==='settings'){if(!user)throw new Error('Hesabınıza daxil olun.');renderSettings();}
     if(route==='programs'){programs=PREVIEW?demoPrograms.filter(p=>p.is_approved&&p.is_active):await api('/hacker/programs');if(ticket!==renderId)return;renderPrograms();}
     if(route==='leaderboard'){leaderboard=PREVIEW?demoLeaders:await api('/hacker/leaderboard');if(ticket!==renderId)return;renderLeaderboard();}
@@ -102,8 +103,9 @@ async function approve(kind,id,approved){modal(approved?'Təsdiq qərarı':'Rəd
 
 document.addEventListener('click',async event=>{const el=event.target.closest('[data-action]');if(!el)return;const a=el.dataset.action,id=Number(el.dataset.id);try{
   if(a==='forgot-password')forgotForm();if(a==='settings'){closeModal();location.hash='settings';}if(a==='close')closeModal();if(a==='retry')await render();if(a==='login'||a==='register')authForm(a);
+  if(a==='join-researcher'||a==='join-company'){authRole=a==='join-company'?'company':'hacker';authForm('register');}
   if(a==='auth-role'){authRole=el.dataset.role;authForm('register');}
-  if(a==='logout'){if(!PREVIEW)await api('/auth/logout',{method:'POST'});user=null;location.hash='programs';await render();}
+  if(a==='logout'){if(!PREVIEW)await api('/auth/logout',{method:'POST'});user=null;location.hash='home';await render();}
   if(a==='scope')await scope(id);if(a==='submit-form')await submitForm(id);if(a==='choose-report')await submitForm();if(a==='new-program')newProgram();if(a==='report-detail')reportDetail(id);if(a==='view-file')await viewFile(id);
   if(a==='wizard-next'){const inputs=[...$('#wizard-1').querySelectorAll('input,textarea')];if(inputs.every(x=>x.reportValidity())){$('#wizard-1').hidden=true;$('#wizard-2').hidden=false;$('#step1').classList.remove('current');$('#step2').classList.add('current');}}
   if(a==='wizard-back'){$('#wizard-1').hidden=false;$('#wizard-2').hidden=true;$('#step1').classList.add('current');$('#step2').classList.remove('current');}
@@ -114,7 +116,7 @@ document.addEventListener('click',async event=>{const el=event.target.closest('[
   if(a==='mark-paid')modal('Ödənişi qeydə al',`<form id="paid-form" data-id="${id}"><p class="notice">Bu əməliyyat pul köçürmür. Yalnız ayrıca etdiyiniz ödənişi qeydə alır.</p><label style="display:flex;gap:10px;font-size:14px"><input type="checkbox" required style="width:18px">Tədqiqatçıya ödənişin edildiyini təsdiqləyirəm.</label><div id="form-error" class="error" role="alert"></div><div class="form-actions"><button class="btn primary">Ödənilmiş kimi işarələ</button></div></form>`);
 }catch(e){toast(e.message);}});
 document.addEventListener('input',e=>{if(e.target.id==='search'){searchTerm=e.target.value;drawCards();}});
-document.addEventListener('change',e=>{if(e.target.id==='bounty-filter'){bountyFilter=e.target.value;drawCards();}if(e.target.id==='demo-role'){setDemoUser(e.target.value);location.hash=user?.role==='company'?'company':user?.role==='superadmin'?'admin':'programs';render();}});
+document.addEventListener('change',e=>{if(e.target.id==='bounty-filter'){bountyFilter=e.target.value;drawCards();}if(e.target.id==='demo-role'){setDemoUser(e.target.value);location.hash=user?.role==='company'?'company':user?.role==='superadmin'?'admin':user?'programs':'home';render();}});
 document.addEventListener('focusout',async e=>{if(e.target.name==='email'&&$('#email-feedback')&&e.target.checkValidity()){const feedback=$('#email-feedback'),address=e.target.value;feedback.textContent='Poçt serveri yoxlanılır…';try{if(PREVIEW){feedback.textContent='Önizləmə: real DNS və e-poçt yoxlaması aparılmır.';return;}await api('/auth/check-email',{method:'POST',body:{email:address}});if(feedback.isConnected&&e.target.value===address)feedback.textContent='Poçt serveri tapıldı. Ünvan məktubdakı keçidlə təsdiqlənəcək.';}catch(err){if(feedback.isConnected)feedback.textContent=err.message;}}});
 document.addEventListener('submit',async event=>{const form=event.target;if(!form.id)return;event.preventDefault();const button=form.querySelector('button[type="submit"],button:not([type])');if(button)button.disabled=true;const data=Object.fromEntries(new FormData(form));const error=$('#form-error');if(error)error.textContent='';try{
   if(form.id==='forgot-password-form'){

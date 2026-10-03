@@ -2010,6 +2010,66 @@ const messages = {
     "az": "İndi hesab yarat",
     "en": "Create your account",
     "ru": "Создать аккаунт"
+  },
+  "Profilim": {
+    "az": "Profilim",
+    "en": "My profile",
+    "ru": "Мой профиль"
+  },
+  "ŞƏXSİ PROFİL": {
+    "az": "ŞƏXSİ PROFİL",
+    "en": "PERSONAL PROFILE",
+    "ru": "ЛИЧНЫЙ ПРОФИЛЬ"
+  },
+  "Haqqınızda məlumatı və profil keçidlərinizi yeniləyin.": {
+    "az": "Haqqınızda məlumatı və profil keçidlərinizi yeniləyin.",
+    "en": "Update your bio and profile links.",
+    "ru": "Обновите информацию о себе и ссылки на профили."
+  },
+  "Profili saxla": {
+    "az": "Profili saxla",
+    "en": "Save profile",
+    "ru": "Сохранить профиль"
+  },
+  "İstifadəçi adını və şifrəni hesab sazlamalarında dəyişə bilərsiniz.": {
+    "az": "İstifadəçi adını və şifrəni hesab sazlamalarında dəyişə bilərsiniz.",
+    "en": "Change your username and password in account settings.",
+    "ru": "Изменить имя пользователя и пароль можно в настройках аккаунта."
+  },
+  "3–40 simvol: latın hərfləri, rəqəmlər, _ və -.": {
+    "az": "3–40 simvol: latın hərfləri, rəqəmlər, _ və -.",
+    "en": "3–40 characters: Latin letters, numbers, _ and -.",
+    "ru": "3–40 символов: латинские буквы, цифры, _ и -."
+  },
+  "İstifadəçi adı yoxlanılır…": {
+    "az": "İstifadəçi adı yoxlanılır…",
+    "en": "Checking username…",
+    "ru": "Проверяем имя пользователя…"
+  },
+  "Bu istifadəçi adı uyğundur.": {
+    "az": "Bu istifadəçi adı uyğundur.",
+    "en": "This username is available.",
+    "ru": "Это имя пользователя доступно."
+  },
+  "Ad yoxlanmadı. Saxlayarkən yenidən yoxlanacaq.": {
+    "az": "Ad yoxlanmadı. Saxlayarkən yenidən yoxlanacaq.",
+    "en": "Could not check the name. It will be checked when you save.",
+    "ru": "Не удалось проверить имя. Оно будет проверено при сохранении."
+  },
+  "Tədqiqatçı hesabı tələb olunur.": {
+    "az": "Tədqiqatçı hesabı tələb olunur.",
+    "en": "A researcher account is required.",
+    "ru": "Требуется аккаунт исследователя."
+  },
+  "Profil yeniləndi.": {
+    "az": "Profil yeniləndi.",
+    "en": "Profile updated.",
+    "ru": "Профиль обновлён."
+  },
+  "Önizləmə: dəyişikliklər səhifə yenilənənədək saxlanılır.": {
+    "az": "Önizləmə: dəyişikliklər səhifə yenilənənədək saxlanılır.",
+    "en": "Preview: changes last until the page is reloaded.",
+    "ru": "Предпросмотр: изменения сохраняются до перезагрузки страницы."
   }
 };
 

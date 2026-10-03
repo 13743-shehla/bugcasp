@@ -1,7 +1,7 @@
 from datetime import timedelta
 import hashlib
 import secrets
-from fastapi import APIRouter, Depends, HTTPException, Request, Response
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, Query
 from sqlalchemy import select, delete, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -9,7 +9,7 @@ from ..auth import current_user, passwords, dummy_hash, create_token, rate_limit
 from ..config import settings
 from ..database import get_db
 from ..models import User, Company, Verification, PasswordReset, AuditEvent, now
-from ..schemas import Register, Login, EmailCheck, Verify, AccountUpdate, ResetPassword
+from ..schemas import Register, Login, EmailCheck, Verify, AccountUpdate, ResetPassword, ProfileUpdate
 from ..services import user_view
 from ..email_verifier import verify_email_domain, send_verification, send_welcome, send_password_reset
 
@@ -97,6 +97,25 @@ def logout(response: Response):
 @router.get('/me')
 def me(user: User = Depends(current_user)):
     return user_view(user)
+
+@router.get('/username-availability')
+def username_availability(request: Request, username: str = Query(min_length=3, max_length=40, pattern=r'^[a-zA-Z0-9_-]+$'), db: Session = Depends(get_db), user: User = Depends(current_user)):
+    rate_limit(request, 'username-check', 60, db=db, identifier=str(user.id))
+    username = username.lower()
+    reserved = user.role != 'superadmin' and username == settings.bootstrap_admin_username.lower()
+    taken = db.scalar(select(User.id).where(User.username == username, User.id != user.id)) is not None
+    return {'username': username, 'available': not reserved and not taken}
+
+@router.put('/profile')
+def update_profile(data: ProfileUpdate, request: Request, db: Session = Depends(get_db), user: User = Depends(current_user)):
+    if user.role != 'hacker':
+        raise HTTPException(403, 'Tədqiqatçı hesabı tələb olunur.')
+    rate_limit(request, 'profile-change', 15, db=db, identifier=str(user.id))
+    for field, value in data.model_dump().items():
+        setattr(user, field, value)
+    db.commit()
+    db.refresh(user)
+    return {'user': user_view(user)}
 
 @router.put('/account')
 def change_account(data: AccountUpdate, request: Request, response: Response, db: Session = Depends(get_db), user: User = Depends(current_user)):

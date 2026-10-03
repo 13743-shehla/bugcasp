@@ -105,3 +105,17 @@ class ResetPassword(BaseModel):
         if len(value.encode()) > 72:
             raise ValueError('Şifrə 72 baytdan uzun olmamalıdır.')
         return value
+
+
+class ProfileUpdate(BaseModel):
+    model_config = {'extra': 'forbid'}
+    bio: str = Field(default='', max_length=2000)
+    github: str = Field(default='', max_length=500)
+    tryhackme: str = Field(default='', max_length=500)
+    hackthebox: str = Field(default='', max_length=500)
+
+    @field_validator('github', 'tryhackme', 'hackthebox')
+    @classmethod
+    def profile_url(cls, value):
+        value = value.strip()
+        return str(HttpUrl(value)) if value else ''

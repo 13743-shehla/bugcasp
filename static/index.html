@@ -7,6 +7,7 @@
   <link rel="icon" href="/static/logo.png" type="image/png">
   <script src="https://cdn.tailwindcss.com" defer></script>
   <script src="/static/tailwind-config.js" defer></script>
+  <script src="/static/i18n.js"></script>
   <script src="/static/theme.js"></script>
   <link rel="stylesheet" href="/static/style.css">
   <script src="/static/config.js" defer></script><script src="/static/app.js" defer></script>
@@ -20,12 +21,12 @@
     <div class="sidebar-bottom"><div class="shield-mini">✓</div><strong>Birlikdə daha təhlükəsiz.</strong><p>Məsuliyyətli araşdırma.<br>Real təsir.</p><div class="sidebar-foot">BUGCASP PLATFORMASI <span>v1.0</span></div></div>
   </aside>
   <div class="main-shell">
-    <header class="topbar"><div class="breadcrumb">İş sahəsi <span>/</span> <strong id="crumb">Proqramlar</strong></div><div class="topbar-actions"><button id="theme-toggle" class="btn theme-toggle" type="button" aria-label="Qaranlıq rejim" aria-pressed="false">☾ Qaranlıq rejim</button><div id="account" class="account"></div></div></header>
+    <header class="topbar"><div class="breadcrumb">İş sahəsi <span>/</span> <strong id="crumb">Proqramlar</strong></div><div class="topbar-actions"><label class="sr-only" for="language-select">Dil seçimi</label><select id="language-select" data-language-select class="language-select" aria-label="Dil seçimi"><option translate="no" value="az">Azərbaycan</option><option translate="no" value="en">English</option><option translate="no" value="ru">Русский</option></select><button id="theme-toggle" class="btn theme-toggle" type="button" aria-label="Qaranlıq rejim" aria-pressed="false">☾ Qaranlıq rejim</button><div id="account" class="account"></div></div></header>
     <div id="preview-notice" hidden class="preview-notice"><span><strong>İnterfeys önizləməsi</strong> · Nümunə məlumatları. Dəyişikliklər saxlanılmır, e-poçt göndərilmir.</span><label>Rol <select id="demo-role"><option value="hacker">Tədqiqatçı</option><option value="company">Şirkət</option><option value="superadmin">Admin</option><option value="guest">Qonaq</option></select></label></div>
     <main id="main" tabindex="-1" aria-live="polite"><div class="empty">BugCasp yüklənir…</div></main>
     <footer><span>© <span id="year"></span> BugCasp</span><span>Yalnız icazə verilən hədəfləri araşdırın.</span></footer>
   </div>
 </div>
-<dialog id="modal" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" data-action="close" aria-label="Bağla">×</button></div><div id="modal-body"></div></dialog>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title"></h2><select data-language-select class="language-select" aria-label="Dil seçimi"><option translate="no" value="az">Azərbaycan</option><option translate="no" value="en">English</option><option translate="no" value="ru">Русский</option></select><button class="icon-button" data-action="close" aria-label="Bağla">×</button></div><div id="modal-body"></div></dialog>
 <div id="toast" role="status" hidden></div>
 </body></html>

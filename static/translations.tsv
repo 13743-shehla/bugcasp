@@ -1,0 +1,322 @@
+Proqramlar|Programs|Программы
+Hesabatlarım|My reports|Мои отчёты
+Şərəf lövhəsi|Leaderboard|Рейтинг
+Şirkət portalı|Company portal|Кабинет компании
+Admin paneli|Admin panel|Панель администратора
+Hesab sazlamaları|Account settings|Настройки аккаунта
+Tədqiqatçı|Researcher|Исследователь
+Şirkət sahibi|Company owner|Владелец компании
+Platforma admini|Platform administrator|Администратор платформы
+Daxil ol|Sign in|Войти
+Qeydiyyat|Register|Регистрация
+Sazlamalar|Settings|Настройки
+Çıxış|Sign out|Выйти
+İŞ SAHƏSİ|WORKSPACE|РАБОЧЕЕ ПРОСТРАНСТВО
+İş sahəsi|Workspace|Рабочее пространство
+Əsas naviqasiya|Main navigation|Основная навигация
+SECURITY COMMUNITY|SECURITY COMMUNITY|СООБЩЕСТВО БЕЗОПАСНОСТИ
+BUGCASP PLATFORMASI|BUGCASP PLATFORM|ПЛАТФОРМА BUGCASP
+Birlikdə daha təhlükəsiz.|Safer together.|Вместе безопаснее.
+Məsuliyyətli araşdırma.|Responsible research.|Ответственное исследование.
+Real təsir.|Real impact.|Реальный результат.
+BugCasp — Təhlükəsizlik platforması|BugCasp — Security platform|BugCasp — Платформа безопасности
+BugCasp yüklənir…|Loading BugCasp…|Загрузка BugCasp…
+Yüklənir…|Loading…|Загрузка…
+Yalnız icazə verilən hədəfləri araşdırın.|Only test authorized targets.|Проверяйте только разрешённые цели.
+Dil seçimi|Language|Язык
+☾ Qaranlıq rejim|☾ Dark mode|☾ Тёмная тема
+☀ Açıq rejim|☀ Light mode|☀ Светлая тема
+Qaranlıq rejimə keç|Switch to dark mode|Включить тёмную тему
+Açıq rejimə keç|Switch to light mode|Включить светлую тему
+Qaranlıq rejim|Dark mode|Тёмная тема
+Bağla|Close|Закрыть
+Ləğv et|Cancel|Отмена
+Geri|Back|Назад
+Göndər|Send|Отправить
+Qeyd|Note|Примечание
+Bax|View|Просмотр
+ARAŞDIR · HESABAT VER · TƏSİR YARAT|RESEARCH · REPORT · MAKE AN IMPACT|ИССЛЕДУЙ · СООБЩАЙ · ПОМОГАЙ
+Növbəti hədəfinizi tapın.|Find your next target.|Найдите следующую цель.
+Təsdiqlənmiş proqramları araşdırın və təhlükəsizliyə töhfə verin.|Explore approved programs and help improve security.|Изучайте одобренные программы и повышайте безопасность.
+Proqram yarat|Create program|Создать программу
+Hesabat göndər|Submit report|Отправить отчёт
+İcmaya qoşul|Join the community|Присоединиться
+Bacarıqlarınızla fərq yaradın.|Make a difference with your skills.|Примените свои навыки с пользой.
+Əhatə dairəsini yoxlayın, zəiflikləri məsuliyyətlə bildirin və töhfənizə görə mükafat qazanın.|Check the scope, report vulnerabilities responsibly and earn rewards for your contribution.|Изучите область тестирования, ответственно сообщайте об уязвимостях и получайте награды.
+Aktiv proqramlar|Active programs|Активные программы
+Təsdiqlənmiş hədəflər|Approved targets|Одобренные цели
+Pul mükafatlı|Cash rewards|Денежные награды
+Bug bounty proqramları|Bug bounty programs|Программы bug bounty
+Ən yüksək mükafat|Highest reward|Максимальная награда
+Kritik tapıntılar üçün|For critical findings|За критические уязвимости
+Reputasiya proqramları|Reputation programs|Репутационные программы
+Təcrübənizi sübut edin|Prove your skills|Покажите свои навыки
+Proqramları kəşf edin|Explore programs|Найти программы
+Proqram axtar|Search programs|Поиск программ
+Proqram və ya şirkət axtar…|Search programs or companies…|Поиск программ или компаний…
+Mükafat növü|Reward type|Тип награды
+Bütün mükafatlar|All rewards|Все награды
+Pul mükafatı|Cash reward|Денежная награда
+Reputasiya xalı|Reputation points|Баллы репутации
+Reputasiya|Reputation|Репутация
+Aktiv|Active|Активна
+Təsdiqlənib ✓|Approved ✓|Одобрено ✓
+MÜKAFAT ARALIĞI|REWARD RANGE|ДИАПАЗОН НАГРАД
+Ətraflı bax →|View details →|Подробнее →
+xal|points|баллов
+Proqram tapılmadı|No programs found|Программы не найдены
+Proqramlar təsdiqləndikdə burada görünəcək. Axtarış filtrlərini də yoxlaya bilərsiniz.|Approved programs will appear here. You can also check your search filters.|Одобренные программы появятся здесь. Также проверьте фильтры поиска.
+Hər proqramın əhatə dairəsi və qaydaları fərqlidir. Testə başlamazdan əvvəl onları oxuyun.|Each program has its own scope and rules. Read them before testing.|У каждой программы своя область тестирования и правила. Прочитайте их до начала проверки.
+BUGCASP İCMASI|BUGCASP COMMUNITY|СООБЩЕСТВО BUGCASP
+Həll olunmuş tapıntılar. Ölçülə bilən töhfələr.|Resolved findings. Measurable contributions.|Устранённые уязвимости. Измеримый вклад.
+Təhlükəsizlik tədqiqatçısı|Security researcher|Исследователь безопасности
+TƏDQİQATÇI MƏRKƏZİ|RESEARCHER HUB|КАБИНЕТ ИССЛЕДОВАТЕЛЯ
+Tapıntılarınızın baxış və həll prosesini izləyin.|Track the review and resolution of your findings.|Следите за проверкой и устранением найденных уязвимостей.
+Təqdim etdiyiniz tapıntılar|Your submitted findings|Ваши отправленные отчёты
+Baxışdadır|Under review|На проверке
+İlkin baxış gözləyir|Awaiting initial review|Ожидают первичной проверки
+Həll olunub|Resolved|Устранено
+Təsdiqlənmiş töhfələr|Verified contributions|Подтверждённый вклад
+Hesab üzrə ümumi xal|Total account points|Общее количество баллов
+HESABAT|REPORT|ОТЧЁТ
+PROQRAM|PROGRAM|ПРОГРАММА
+CİDDİLİK|SEVERITY|КРИТИЧНОСТЬ
+STATUS|STATUS|СТАТУС
+Hələ hesabat yoxdur.|No reports yet.|Отчётов пока нет.
+Qiymətləndirilməyib|Not assessed|Не оценено
+ŞİRKƏT PORTALI|COMPANY PORTAL|КАБИНЕТ КОМПАНИИ
+Təhlükəsizlik iş sahəsi|Security workspace|Рабочее пространство безопасности
+Proqramlarınızı və daxil olan hesabatları idarə edin.|Manage your programs and incoming reports.|Управляйте программами и входящими отчётами.
+Şirkət statusu:|Company status:|Статус компании:
+Proqram yaratmaq üçün platforma təsdiqi gözlənilir.|Platform approval is required before creating programs.|Для создания программ требуется одобрение платформы.
+Şirkətinizin proqramları|Your company’s programs|Программы вашей компании
+Yeni hesabatlar|New reports|Новые отчёты
+Bağlanmış tapıntılar|Resolved findings|Закрытые отчёты
+Ödənilmiş mükafat|Paid rewards|Выплаченные награды
+Şirkət tərəfindən təsdiqlənib|Confirmed by the company|Подтверждено компанией
+Proqramlarım|My programs|Мои программы
+TƏSDİQ|APPROVAL|ОДОБРЕНИЕ
+VƏZİYYƏT|STATE|СОСТОЯНИЕ
+Dayandırılıb|Paused|Приостановлена
+Dayandır|Pause|Приостановить
+Aktiv et|Activate|Активировать
+Hələ proqram yaradılmayıb.|No programs created yet.|Программ пока нет.
+Daxil olan hesabatlar|Incoming reports|Входящие отчёты
+PLATFORMA İDARƏETMƏSİ|PLATFORM MANAGEMENT|УПРАВЛЕНИЕ ПЛАТФОРМОЙ
+Müraciətləri yoxlayın, hesabatları izləyin və mübahisələri həll edin.|Review applications, track reports and resolve disputes.|Проверяйте заявки, отслеживайте отчёты и разрешайте споры.
+Ümumi ödəniş|Total payouts|Общие выплаты
+Şirkətlərin qeydə aldığı ödənişlər|Payouts recorded by companies|Выплаты, отмеченные компаниями
+Təsdiqlənmiş proqramlar|Approved programs|Одобренные программы
+Açıq hesabatlar|Open reports|Открытые отчёты
+New və Triaged|New and triaged|Новые и проверенные
+Tədqiqatçılar|Researchers|Исследователи
+E-poçtu təsdiqlənmiş|Email verified|С подтверждённой почтой
+Şirkət təsdiqləri|Company approvals|Одобрение компаний
+ŞİRKƏT|COMPANY|КОМПАНИЯ
+SAHƏ|INDUSTRY|ОТРАСЛЬ
+QƏRAR|DECISION|РЕШЕНИЕ
+Təsdiqlə|Approve|Одобрить
+Rədd et|Reject|Отклонить
+Gözləyən şirkət yoxdur.|No companies awaiting review.|Нет компаний на проверке.
+Proqram təsdiqləri|Program approvals|Одобрение программ
+Əhatə dairəsi:|Scope:|Область тестирования:
+İstisnalar:|Exclusions:|Исключения:
+Qaydalar:|Rules:|Правила:
+Mükafat:|Reward:|Награда:
+Gözləyən proqram yoxdur.|No programs awaiting review.|Нет программ на проверке.
+Bütün hesabatlar|All reports|Все отчёты
+Ən fəal tədqiqatçılar|Top researchers|Лучшие исследователи
+Hələ məlumat yoxdur.|No data yet.|Данных пока нет.
+ƏHATƏ DAİRƏSİ|IN SCOPE|В ОБЛАСТИ ТЕСТИРОВАНИЯ
+ƏHATƏ DAİRƏSİNDƏN KƏNAR|OUT OF SCOPE|ВНЕ ОБЛАСТИ ТЕСТИРОВАНИЯ
+ARAŞDIRMA QAYDALARI|RESEARCH RULES|ПРАВИЛА ИССЛЕДОВАНИЯ
+BugCasp-a qoşulun|Join BugCasp|Присоединиться к BugCasp
+Hesabınıza daxil olun|Sign in to your account|Войдите в аккаунт
+Şirkət|Company|Компания
+İstifadəçi adı|Username|Имя пользователя
+E-poçt ünvanı|Email address|Электронная почта
+İstifadəçi adı və ya e-poçt|Username or email|Имя пользователя или почта
+Şifrə|Password|Пароль
+Şirkət adı|Company name|Название компании
+Fəaliyyət sahəsi|Industry|Отрасль
+Əsas sayt|Website|Сайт
+Haqqınızda|About you|О себе
+GitHub profili|GitHub profile|Профиль GitHub
+TryHackMe profili|TryHackMe profile|Профиль TryHackMe
+Hack The Box profili|Hack The Box profile|Профиль Hack The Box
+E-poçt domeni yoxlanılır, hesab məktubdakı keçidlə aktivləşir. Şifrə: ən azı 12 simvol.|We check your email domain. Activate your account using the email link. Password: at least 12 characters.|Домен почты проверяется. Активируйте аккаунт по ссылке в письме. Пароль: не менее 12 символов.
+Hesabım var|I have an account|У меня есть аккаунт
+Hesab yarat|Create account|Создать аккаунт
+Qeydiyyatdan keç|Register|Зарегистрироваться
+Şifrəni unutmuşam|Forgot password|Забыли пароль
+Təsdiq məktubunu yenidən göndər|Resend verification email|Отправить письмо повторно
+Şifrənin bərpası|Password recovery|Восстановление пароля
+Hesabın e-poçtu|Account email|Почта аккаунта
+Təsdiqlənmiş e-poçtunuza 30 dəqiqə etibarlı keçid göndəriləcək.|A link valid for 30 minutes will be sent to your verified email.|На подтверждённую почту будет отправлена ссылка, действующая 30 минут.
+Bərpa keçidi göndər|Send recovery link|Отправить ссылку
+Yeni şifrə təyin et|Set a new password|Задать новый пароль
+Yeni şifrə|New password|Новый пароль
+Şifrəni təkrarla|Repeat password|Повторите пароль
+Ən azı 12 simvol. Köhnə giriş sessiyaları bağlanacaq.|At least 12 characters. Previous sessions will be signed out.|Не менее 12 символов. Предыдущие сеансы будут завершены.
+Şifrəni yenilə|Update password|Обновить пароль
+Yeni keçid istə|Request a new link|Запросить новую ссылку
+E-poçt təsdiqləndi|Email verified|Почта подтверждена
+Hesabınız aktivləşdi. İndi daxil ola bilərsiniz.|Your account is active. You can now sign in.|Аккаунт активирован. Теперь можно войти.
+Xoş gəldiniz məktubu:|Welcome email:|Приветственное письмо:
+Təsdiq alınmadı|Verification failed|Подтверждение не удалось
+Proqram seçin|Select a program|Выберите программу
+Aktiv proqram yoxdur.|No active programs.|Нет активных программ.
+Zəiflik hesabatı|Vulnerability report|Отчёт об уязвимости
+Hesabat başlığı|Report title|Заголовок отчёта
+CWE / OWASP kateqoriyası|CWE / OWASP category|Категория CWE / OWASP
+SÜBUT FAYLI|EVIDENCE FILE|ФАЙЛ С ДОКАЗАТЕЛЬСТВОМ
+PDF və ya TXT faylını buraya sürüşdürün|Drop a PDF or TXT file here|Перетащите файл PDF или TXT сюда
+Yalnız .pdf və .txt · maksimum 4 MB|Only .pdf and .txt · up to 4 MB|Только .pdf и .txt · до 4 МБ
+Sübut faylı seç|Choose evidence file|Выберите файл
+Təkrarlama addımlarını və təsiri sübut faylında izah edin.|Describe the reproduction steps and impact in the evidence file.|Опишите шаги воспроизведения и влияние в файле.
+Hesabatı göndər|Submit report|Отправить отчёт
+Yeni bug bounty proqramı|New bug bounty program|Новая программа bug bounty
+01 · Əsas məlumatlar|01 · Basic details|01 · Основные сведения
+02 · Mükafat və qaydalar|02 · Rewards and rules|02 · Награды и правила
+Proqram adı|Program name|Название программы
+Hədəf URL|Target URL|URL цели
+Əhatə dairəsindəki aktivlər|In-scope assets|Активы в области тестирования
+Əhatə dairəsindən kənar|Out of scope|Вне области тестирования
+Davam et →|Continue →|Продолжить →
+Pul mükafatı (AZN — manat)|Cash reward (AZN — manat)|Денежная награда (AZN — манат)
+LOW mükafatı|Low severity reward|Награда за низкую критичность
+MEDIUM mükafatı|Medium severity reward|Награда за среднюю критичность
+HIGH mükafatı|High severity reward|Награда за высокую критичность
+CRITICAL mükafatı|Critical severity reward|Награда за критическую уязвимость
+Araşdırma qaydaları (RoE)|Rules of engagement (RoE)|Правила тестирования (RoE)
+Proqram admin təsdiqindən sonra ictimai siyahıya əlavə olunacaq.|The program will be listed after admin approval.|Программа появится в списке после одобрения администратором.
+Təsdiqə göndər|Submit for approval|Отправить на одобрение
+Təkrarlama addımları|Steps to reproduce|Шаги воспроизведения
+Təsir analizi|Impact analysis|Оценка влияния
+HTTP sorğu / cavab|HTTP request / response|HTTP-запрос / ответ
+Mübahisə|Dispute|Спор
+Admin qeydi|Admin note|Примечание администратора
+▤ Sübut faylını aç|▤ Open evidence|▤ Открыть доказательство
+reputasiya xalı|reputation points|баллов репутации
+ödənilib|paid|выплачено
+mükafat təsdiqlənib|reward approved|награда подтверждена
+HESABATIN İDARƏ EDİLMƏSİ|REPORT MANAGEMENT|УПРАВЛЕНИЕ ОТЧЁТОМ
+Status|Status|Статус
+Təhlükə dərəcəsi|Severity|Критичность
+Dərəcə seçin|Select severity|Выберите критичность
+Mediation qeydi|Mediation note|Примечание по спору
+Baxış qeydi|Review note|Примечание к проверке
+Xarici ödənişi qeydə al|Record external payment|Отметить внешнюю выплату
+Statusu yenilə|Update status|Обновить статус
+Admin baxışı istə|Request admin review|Запросить проверку администратора
+Sübut sənədi|Evidence document|Документ с доказательством
+Sübut sənədinə baxış|Evidence viewer|Просмотр доказательства
+Faylı endir|Download file|Скачать файл
+Hesabata qayıt|Back to report|Вернуться к отчёту
+Təsdiq qərarı|Approval decision|Решение об одобрении
+Rədd qərarı|Rejection decision|Решение об отклонении
+Müraciəti təsdiqləmək|Approve the application|Одобрить заявку
+Müraciəti rədd etmək|Reject the application|Отклонить заявку
+üçün qərarınızı qeydə alın.|— record your decision.|— укажите причину решения.
+Qərarı saxla|Save decision|Сохранить решение
+E-poçt|Email|Электронная почта
+Mübahisənin səbəbi|Reason for dispute|Причина спора
+Adminə göndər|Send to admin|Отправить администратору
+Ödənişi qeydə al|Record payment|Отметить выплату
+Bu əməliyyat pul köçürmür. Yalnız ayrıca etdiyiniz ödənişi qeydə alır.|This does not transfer money. It records a payment made separately.|Это действие не переводит деньги, а отмечает выплату, выполненную отдельно.
+Tədqiqatçıya ödənişin edildiyini təsdiqləyirəm.|I confirm the researcher has been paid.|Подтверждаю выплату исследователю.
+Ödənilmiş kimi işarələ|Mark as paid|Отметить как выплаченное
+HESABIN İDARƏ EDİLMƏSİ|ACCOUNT MANAGEMENT|УПРАВЛЕНИЕ АККАУНТОМ
+İstifadəçi adınızı və şifrənizi buradan dəyişin.|Change your username and password here.|Здесь можно изменить имя пользователя и пароль.
+Admin hesabınız e-poçta bağlı deyil. İstifadəçi adı və şifrə ilə daxil olursunuz.|Your admin account has no email. Sign in with your username and password.|У аккаунта администратора нет почты. Вход по имени пользователя и паролю.
+E-poçt:|Email:|Почта:
+Dəyişiklikdən sonra digər sessiyalar bağlanacaq.|Other sessions will be signed out after the change.|После изменения другие сеансы будут завершены.
+Cari şifrə|Current password|Текущий пароль
+Yeni şifrəni təkrarlayın|Repeat new password|Повторите новый пароль
+Şifrəni dəyişmək istəmirsinizsə, yeni şifrə xanalarını boş saxlayın. Yeni şifrə ən azı 8 simvol olmalıdır.|Leave the new password fields empty to keep your password. A new password must have at least 8 characters.|Оставьте поля нового пароля пустыми, чтобы сохранить пароль. Новый пароль должен содержать не менее 8 символов.
+Dəyişiklikləri saxla|Save changes|Сохранить изменения
+Məlumat yüklənmədi|Could not load data|Не удалось загрузить данные
+Yenidən yoxla|Try again|Повторить
+E-poçtunuzu yoxlayın|Check your email|Проверьте почту
+Girişə qayıt|Back to sign in|Вернуться ко входу
+E-poçtunuzu təsdiqləyin|Verify your email|Подтвердите почту
+Qeydiyyat alındı. Hesab yalnız e-poçt təsdiqindən sonra aktivləşəcək.|Registration received. Your account activates after email verification.|Регистрация принята. Аккаунт активируется после подтверждения почты.
+Təsdiq keçidi e-poçt ünvanınıza göndərildi.|A verification link was sent to your email.|Ссылка для подтверждения отправлена на почту.
+Məktub göndərilmədi. Administrator e-poçt xidmətinin sazlamalarını tamamladıqdan sonra yenidən göndərməyi yoxlayın.|Email was not sent. Try again after the administrator configures the email service.|Письмо не отправлено. Повторите после настройки почтового сервиса администратором.
+Yenidən göndər|Resend|Отправить повторно
+Poçt serveri yoxlanılır…|Checking mail server…|Проверка почтового сервера…
+Poçt serveri tapıldı. Ünvan məktubdakı keçidlə təsdiqlənəcək.|Mail server found. Verify the address using the email link.|Почтовый сервер найден. Подтвердите адрес по ссылке в письме.
+Şifrələr uyğun gəlmir.|Passwords do not match.|Пароли не совпадают.
+Yeni şifrələr uyğun deyil.|New passwords do not match.|Новые пароли не совпадают.
+Şifrəniz yeniləndi. Yeni şifrə ilə daxil olun.|Password updated. Sign in with your new password.|Пароль обновлён. Войдите с новым паролем.
+Hesab gözləmədədirsə, yeni məktub tələb edildi.|If the account is pending, a new email has been requested.|Если аккаунт ожидает подтверждения, запрошено новое письмо.
+Sübut faylını əlavə edin.|Please attach an evidence file.|Прикрепите файл с доказательством.
+Hesabat göndərildi.|Report submitted.|Отчёт отправлен.
+Proqram təsdiq üçün göndərildi.|Program submitted for approval.|Программа отправлена на одобрение.
+Təhlükə dərəcəsini seçin.|Select a severity level.|Выберите критичность.
+Hesabat statusu yeniləndi.|Report status updated.|Статус отчёта обновлён.
+Qərar saxlanıldı.|Decision saved.|Решение сохранено.
+Admin baxışı tələb edildi.|Admin review requested.|Запрошена проверка администратора.
+Xarici ödəniş qeydə alındı.|External payment recorded.|Внешняя выплата отмечена.
+Proqramın vəziyyəti yeniləndi.|Program state updated.|Состояние программы обновлено.
+Fayla giriş mümkün deyil.|Cannot access the file.|Нет доступа к файлу.
+Yalnız boş olmayan .pdf və .txt faylları qəbul edilir (maksimum 4 MB).|Only non-empty .pdf and .txt files are accepted (up to 4 MB).|Принимаются только непустые файлы .pdf и .txt (до 4 МБ).
+Hesabınıza daxil olun.|Sign in to your account.|Войдите в аккаунт.
+Hesabatlarınızı görmək üçün tədqiqatçı hesabına daxil olun.|Sign in as a researcher to view your reports.|Войдите как исследователь, чтобы увидеть отчёты.
+Şirkət hesabına daxil olun.|Sign in to your company account.|Войдите в аккаунт компании.
+Admin girişi tələb olunur.|Admin access required.|Требуется вход администратора.
+Proqram yaratmaq üçün şirkət hesabı tələb olunur.|A company account is required to create programs.|Для создания программ нужен аккаунт компании.
+Server cavabı oxunmadı.|Could not read server response.|Не удалось прочитать ответ сервера.
+Sorğu alınmadı.|Request failed.|Не удалось выполнить запрос.
+İnterfeys önizləməsi|Interface preview|Предпросмотр интерфейса
+Rol|Role|Роль
+Qonaq|Guest|Гость
+Admin|Admin|Администратор
+Nümunə məlumatları. Dəyişikliklər saxlanılmır, e-poçt göndərilmir.|Sample data. Changes are not saved and no email is sent.|Пример данных. Изменения не сохраняются, письма не отправляются.
+Hesabat|Report|Отчёт
+Təhlükəsizliyi gücləndirən tədqiqatçılar.|Researchers strengthening security.|Исследователи, повышающие безопасность.
+Reputasiya xalları yalnız hesabat həll olunduqda verilir.|Reputation points are awarded only when a report is resolved.|Баллы репутации начисляются только после устранения уязвимости.
+HALL OF FAME|HALL OF FAME|ЗАЛ СЛАВЫ
+SIRA|RANK|МЕСТО
+TƏDQİQATÇI|RESEARCHER|ИССЛЕДОВАТЕЛЬ
+HƏLL OLUNMUŞ|RESOLVED|УСТРАНЕНО
+REPUTASİYA|REPUTATION|РЕПУТАЦИЯ
+hesabat|reports|отчётов
+İlk təsdiqlənmiş tədqiqatçıları gözləyirik.|Awaiting the first verified researchers.|Ожидаем первых подтверждённых исследователей.
+Triage prosesi|Triage process|Первичная проверка
+Server sazlanması tamamlanmayıb və ya baza əlçatan deyil.|Server setup is incomplete or the database is unavailable.|Настройка сервера не завершена или база данных недоступна.
+Əvvəl təhlükə dərəcəsini seçin.|Select a severity level first.|Сначала выберите критичность.
+Mükafat hesablandıqdan sonra təhlükə dərəcəsi dəyişdirilə bilməz.|Severity cannot be changed after rewards have been calculated.|Критичность нельзя менять после начисления награды.
+Bu istifadəçi adı platforma sahibi üçün ayrılıb.|This username is reserved for the platform owner.|Это имя зарезервировано для владельца платформы.
+İstifadəçi adı, e-poçt və ya şifrə yanlışdır.|Incorrect username, email or password.|Неверное имя пользователя, почта или пароль.
+Cari şifrə yanlışdır.|Current password is incorrect.|Текущий пароль неверен.
+Bu istifadəçi adı ayrılıb.|This username is reserved.|Это имя пользователя зарезервировано.
+Hesab başqa sorğuda yenilənib. Yenidən daxil olun.|Your account was updated in another request. Sign in again.|Аккаунт обновлён в другом запросе. Войдите повторно.
+Bu istifadəçi adı artıq istifadə olunur.|This username is already in use.|Это имя пользователя уже занято.
+Başlıq, kateqoriya və sübut faylı tələb olunur.|Title, category and evidence file are required.|Нужны заголовок, категория и файл с доказательством.
+Sübut faylı boş olmamalı və 4 MB həddini keçməməlidir.|The evidence file must not be empty or exceed 4 MB.|Файл не должен быть пустым или превышать 4 МБ.
+Çox sayda cəhd edildi. Bir az sonra yenidən yoxlayın.|Too many attempts. Try again later.|Слишком много попыток. Повторите позже.
+Bərpa keçidi etibarsızdır və ya vaxtı bitib. Yeni keçid istəyin.|The recovery link is invalid or expired. Request a new link.|Ссылка восстановления недействительна или устарела. Запросите новую.
+Bu e-poçtla təsdiqlənmiş hesab varsa, bərpa keçidi göndərilməsi istənildi. Gələnlər və spam qovluğunu yoxlayın.|If a verified account uses this email, a recovery link has been requested. Check your inbox and spam folder.|Если у подтверждённого аккаунта есть эта почта, запрошена ссылка восстановления. Проверьте входящие и спам.
+Hesab yeniləndi. Köhnə sessiyalar bağlandı.|Account updated. Previous sessions were signed out.|Аккаунт обновлён. Предыдущие сеансы завершены.
+Məlumatları yoxlayıb yenidən göndərin.|Check the form details and try again.|Проверьте данные формы и повторите.
+Bağlantı alınmadı. İnternet bağlantınızı yoxlayın.|Connection failed. Check your internet connection.|Не удалось подключиться. Проверьте интернет-соединение.
+Sübut faylı tapılmadı.|Evidence file not found.|Файл с доказательством не найден.
+Sübut fayllarının yaddaşı hələ sazlanmayıb.|Evidence storage is not configured.|Хранилище доказательств не настроено.
+Fayl yaddaşı müvəqqəti əlçatan deyil. Yenidən yoxlayın.|File storage is temporarily unavailable. Try again.|Хранилище файлов временно недоступно. Повторите позже.
+Fayl və ya məxfi yaddaş qovluğu tapılmadı.|File or private bucket not found.|Файл или закрытое хранилище не найдено.
+Fayl yaddaşına müraciət alınmadı.|Could not access file storage.|Не удалось обратиться к хранилищу.
+Fayl yaddaşının sazlamaları oxunmadı.|Could not read storage settings.|Не удалось прочитать настройки хранилища.
+Sübut yaddaşı məxfi (Private) olmalıdır.|Evidence storage must be private.|Хранилище доказательств должно быть закрытым (Private).
+Fayl yaddaşı sazlanmayıb.|File storage is not configured.|Хранилище файлов не настроено.
+Fayl 4 MB həddini keçir.|The file exceeds 4 MB.|Файл превышает 4 МБ.
+E-poçt təsdiqi tam tətbiqdə işləyir.|Email verification is available in the live app.|Подтверждение почты доступно в рабочем приложении.
+Bərpa məktubu yalnız canlı saytda göndərilir.|Recovery email is sent only on the live site.|Письмо восстановления отправляется только на рабочем сайте.
+Şifrə bərpası yalnız canlı saytda işləyir.|Password recovery works only on the live site.|Восстановление пароля работает только на рабочем сайте.
+Bu, interfeys önizləməsidir. Burada real hesab yaradılmır.|This is an interface preview. No real account is created.|Это предпросмотр интерфейса. Реальный аккаунт не создаётся.
+Önizləmə: real DNS və e-poçt yoxlaması aparılmır.|Preview: no real DNS or email checks.|Предпросмотр: DNS и почта не проверяются.
+Önizləmə: hesab məlumatları dəyişdirilmir.|Preview: account details are not changed.|Предпросмотр: данные аккаунта не изменяются.
+Önizləmə: hesab yaradılmır. Yuxarıdakı rol seçicisini istifadə edin.|Preview: no account is created. Use the role selector above.|Предпросмотр: аккаунт не создаётся. Используйте выбор роли выше.
+Önizləmə: məktub göndərilmir.|Preview: no email is sent.|Предпросмотр: письмо не отправляется.
+Nümunə hesabat əlavə edildi; səhifə yenilənəndə silinəcək.|Sample report added; it will be removed on reload.|Пример отчёта добавлен; он исчезнет при перезагрузке.
+Yerli sınaq rejimi: məktub email-outbox.log faylına yazıldı. Real e-poçt göndərilmədi.|Local test mode: the email was written to email-outbox.log. No real email was sent.|Локальный тест: письмо записано в email-outbox.log. Реальное письмо не отправлено.

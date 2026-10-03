@@ -54,6 +54,7 @@ def initialize_database():
                 connection.execute(text('SELECT pg_advisory_xact_lock(724923611)'))
             Base.metadata.create_all(connection)
             migrate_currency(connection)
+            migrate_manual_severity(connection)
             if postgres:
                 # FastAPI owns authorization; deny direct anonymous Data API access.
                 for table in Base.metadata.sorted_tables:
@@ -81,3 +82,11 @@ def migrate_currency(connection):
         connection.execute(text("ALTER TABLE programs ADD COLUMN currency VARCHAR(3) NOT NULL DEFAULT 'USD'"))
     if connection.dialect.name == 'postgresql':
         connection.execute(text("ALTER TABLE programs ALTER COLUMN currency SET DEFAULT 'AZN'"))
+
+
+def migrate_manual_severity(connection):
+    if 'severity_reviewed' not in {c['name'] for c in inspect(connection).get_columns('reports')}:
+        connection.execute(text("ALTER TABLE reports ADD COLUMN severity_reviewed BOOLEAN NOT NULL DEFAULT TRUE"))
+        connection.execute(text("UPDATE reports SET severity_reviewed = FALSE WHERE status = 'New' AND reputation_awarded = 0"))
+    if connection.dialect.name == 'postgresql':
+        connection.execute(text("ALTER TABLE reports ALTER COLUMN severity_reviewed SET DEFAULT FALSE"))

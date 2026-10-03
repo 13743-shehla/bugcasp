@@ -25,7 +25,7 @@ def test_new_program_azn_and_report_currency(platform):
     report = submit(platform).json()
     assert report['currency'] == 'AZN'
     for state in ('Triaged', 'Resolved'):
-        response = client.put(f"/api/company/reports/{report['id']}/status", headers=tokens['owner'], json={'status':state})
+        response = client.put(f"/api/company/reports/{report['id']}/status", headers=tokens['owner'], json={'status':state,'severity':'High'})
         assert response.status_code == 200
     assert response.json()['cash_awarded'] == 500
     assert response.json()['currency'] == 'AZN'

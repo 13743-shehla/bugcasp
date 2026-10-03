@@ -1,7 +1,6 @@
 from io import BytesIO
 from pathlib import Path
 from uuid import uuid4
-from cvss import CVSS3
 from pypdf import PdfReader
 from fastapi import APIRouter, Depends, HTTPException, Form, File, UploadFile
 from sqlalchemy import select, func
@@ -54,18 +53,10 @@ def validate_evidence(content, suffix):
         raise HTTPException(422, 'Only .pdf and .txt files are accepted.')
 
 @router.post('/reports', status_code=201)
-def submit(program_id: int = Form(...), title: str = Form(..., min_length=5, max_length=200), cwe_category: str = Form(..., max_length=100), cvss_vector: str = Form(..., max_length=180), poc_steps: str = Form(..., min_length=20, max_length=50000), impact: str = Form(..., min_length=10, max_length=20000), http_payload: str = Form('', max_length=50000), attachment: UploadFile | None = File(None), db: Session = Depends(get_db), user: User = Depends(roles('hacker'))):
+def submit(program_id: int = Form(...), title: str = Form(..., min_length=5, max_length=200), cwe_category: str = Form(..., min_length=1, max_length=100), attachment: UploadFile = File(...), db: Session = Depends(get_db), user: User = Depends(roles('hacker'))):
     program = visible_program(db, program_id)
-    try:
-        if not cvss_vector.startswith('CVSS:3.1/'):
-            raise ValueError()
-        calculator = CVSS3(cvss_vector)
-        score = float(calculator.scores()[0])
-        if score <= 0:
-            raise ValueError()
-    except Exception:
-        raise HTTPException(422, 'Provide a valid CVSS v3.1 vector with non-zero impact.')
-    severity = 'Critical' if score >= 9 else 'High' if score >= 7 else 'Medium' if score >= 4 else 'Low'
+    if not title.strip() or not cwe_category.strip() or not attachment.filename:
+        raise HTTPException(422, 'Başlıq, kateqoriya və sübut faylı tələb olunur.')
     filename = None
     if attachment and attachment.filename:
         suffix = Path(attachment.filename).suffix.lower()
@@ -77,7 +68,7 @@ def submit(program_id: int = Form(...), title: str = Form(..., min_length=5, max
         validate_evidence(content, suffix)
         filename = uuid4().hex + suffix
         save_evidence(filename, content)
-    report = Report(program_id=program.id, hacker_id=user.id, title=title, cwe_category=cwe_category, cvss_score=score, cvss_vector=calculator.clean_vector(), severity=severity, poc_steps=poc_steps, impact=impact, http_payload=http_payload, attachment_path=filename)
+    report = Report(program_id=program.id, hacker_id=user.id, title=title.strip(), cwe_category=cwe_category.strip(), cvss_score=0, cvss_vector='', severity='Low', severity_reviewed=False, poc_steps='', impact='', http_payload='', attachment_path=filename)
     try:
         db.add(report)
         db.commit()

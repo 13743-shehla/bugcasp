@@ -111,21 +111,24 @@ def test_pdf_viewer_and_size_limit(platform):
     assert file.headers['content-type']=='application/pdf'
     assert submit(platform,'huge.txt',b'a'*(settings.max_upload_bytes+1)).status_code==413
 
-def test_cvss_is_calculated_on_server(platform):
+def test_report_severity_is_assigned_by_reviewer(platform):
     response=submit(platform)
     assert response.status_code==201,response.text
-    assert response.json()['cvss_score']==8.1
-    assert response.json()['severity']=='High'
+    assert response.json()['severity'] is None
+    assert 'cvss_score' not in response.json()
     client,tokens,*_=platform
-    data=payload();data['cvss_vector']='invalid';data['cvss_score']='10'
+    data={'program_id':'1','title':'Simple vulnerability','cwe_category':'CWE-79','severity':'Critical','cvss_score':'10'}
     assert client.post('/api/hacker/reports',headers=tokens['hunter'],data=data).status_code==422
+    result=client.post('/api/hacker/reports',headers=tokens['hunter'],data=data,files={'attachment':('proof.txt',b'Proof')})
+    assert result.status_code==201
+    assert result.json()['severity'] is None
 
 def test_resolution_awards_once_and_records_external_payout(platform):
     client,tokens,sessions,ids,_=platform
     rid=submit(platform).json()['id']
     endpoint=f'/api/company/reports/{rid}/status'
     assert client.put(endpoint,headers=tokens['owner'],json={'status':'Resolved'}).status_code==409
-    assert client.put(endpoint,headers=tokens['owner'],json={'status':'Triaged'}).status_code==200
+    assert client.put(endpoint,headers=tokens['owner'],json={'status':'Triaged','severity':'High'}).status_code==200
     first=client.put(endpoint,headers=tokens['owner'],json={'status':'Resolved'}).json()
     assert first['reputation_awarded']==400
     assert first['cash_awarded']==500
@@ -161,7 +164,7 @@ def test_dispute_and_mediation(platform):
     assert client.post(f'/api/hacker/reports/{rid}/dispute',headers=tokens['hunter'],json={'note':'Please review this report again.'}).status_code==200
     endpoint=f'/api/admin/reports/{rid}/status'
     assert client.put(endpoint,headers=tokens['admin'],json={'status':'Resolved'}).status_code==422
-    assert client.put(endpoint,headers=tokens['admin'],json={'status':'Resolved','note':'Reviewed evidence; report is valid.'}).status_code==200
+    assert client.put(endpoint,headers=tokens['admin'],json={'status':'Resolved','note':'Reviewed evidence; report is valid.','severity':'High'}).status_code==200
 
 def test_cross_origin_and_tampered_tokens(platform):
     client,tokens,*_=platform

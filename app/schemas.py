@@ -67,6 +67,7 @@ class Approval(BaseModel):
     note: str = Field(default='', max_length=2000)
 
 class StatusUpdate(BaseModel):
+    severity: Literal['Low', 'Medium', 'High', 'Critical'] | None = None
     status: Literal['New', 'Triaged', 'Resolved', 'Duplicate', 'Informative', 'Not Applicable']
     note: str = Field(default='', max_length=5000)
 

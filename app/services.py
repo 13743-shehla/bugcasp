@@ -11,7 +11,9 @@ def program_view(program):
     return result
 
 def report_view(report):
-    result = {key: getattr(report, key) for key in ('id', 'program_id', 'title', 'cwe_category', 'severity', 'cvss_score', 'cvss_vector', 'poc_steps', 'impact', 'http_payload', 'attachment_path', 'status', 'reputation_awarded', 'cash_awarded', 'payout_paid', 'dispute', 'mediation', 'created_at')}
+    result = {key: getattr(report, key) for key in ('id', 'program_id', 'title', 'cwe_category', 'severity', 'severity_reviewed', 'poc_steps', 'impact', 'http_payload', 'attachment_path', 'status', 'reputation_awarded', 'cash_awarded', 'payout_paid', 'dispute', 'mediation', 'created_at')}
+    if not report.severity_reviewed:
+        result['severity'] = None
     result.update(program_title=report.program.title, hacker=report.hacker.username, currency=report.program.currency)
     return result
 
@@ -42,24 +44,33 @@ def accessible_report(db, user, report_id):
 
 def update_status(db, report, actor, data):
     transitions = {'New': {'Triaged', 'Duplicate', 'Informative', 'Not Applicable'}, 'Triaged': {'Resolved', 'Duplicate', 'Informative', 'Not Applicable'}, 'Resolved': set(), 'Duplicate': set(), 'Informative': set(), 'Not Applicable': set()}
+    report = db.scalar(select(Report).where(Report.id == report.id).with_for_update().execution_options(populate_existing=True))
     old = report.status
     if data.status != old and actor.role != 'superadmin' and data.status not in transitions[old]:
         raise HTTPException(409, 'Invalid status transition. Triage new reports before resolving them.')
     if actor.role == 'superadmin' and data.status != old and not data.note.strip():
         raise HTTPException(422, 'Please record a mediation note for this change.')
-    result = db.execute(update(Report).where(Report.id == report.id, Report.status == old).values(status=data.status))
+    severity = data.severity or (report.severity if report.severity_reviewed else None)
+    if data.status in ('Triaged', 'Resolved') and not severity:
+        raise HTTPException(422, 'Əvvəl təhlükə dərəcəsini seçin.')
+    if report.reputation_awarded and data.severity and data.severity != report.severity:
+        raise HTTPException(409, 'Mükafat hesablandıqdan sonra təhlükə dərəcəsi dəyişdirilə bilməz.')
+    values = {'status': data.status}
+    if data.severity:
+        values.update(severity=data.severity, severity_reviewed=True)
+    result = db.execute(update(Report).where(Report.id == report.id, Report.status == old, Report.severity == report.severity, Report.severity_reviewed == report.severity_reviewed).values(**values))
     if result.rowcount != 1:
         db.rollback()
         raise HTTPException(409, 'The report changed. Refresh and try again.')
     if data.status == 'Resolved' and report.reputation_awarded == 0:
-        reward = getattr(report.program, 'reward_' + report.severity.lower())
-        points = max(1, reward) if report.program.bounty_type == 'points' else {'Low': 50, 'Medium': 150, 'High': 400, 'Critical': 800}[report.severity]
+        reward = getattr(report.program, 'reward_' + severity.lower())
+        points = max(1, reward) if report.program.bounty_type == 'points' else {'Low': 50, 'Medium': 150, 'High': 400, 'Critical': 800}[severity]
         won = db.execute(update(Report).where(Report.id == report.id, Report.reputation_awarded == 0).values(reputation_awarded=points, cash_awarded=reward if report.program.bounty_type == 'cash' else 0))
         if won.rowcount:
             db.execute(update(User).where(User.id == report.hacker_id).values(reputation_score=User.reputation_score + points))
     if actor.role == 'superadmin' and data.note:
         report.mediation = data.note
-    db.add(AuditEvent(actor_id=actor.id, subject=f'report:{report.id}', action=f'{old} -> {data.status}: {data.note}'))
+    db.add(AuditEvent(actor_id=actor.id, subject=f'report:{report.id}', action=f'{old} -> {data.status}; severity={severity or "unassigned"}: {data.note}'))
     db.commit()
     db.refresh(report)
     return report_view(report)

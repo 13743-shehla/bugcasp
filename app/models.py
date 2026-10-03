@@ -75,6 +75,7 @@ class Report(Base):
     title: Mapped[str] = mapped_column(String(200))
     cwe_category: Mapped[str] = mapped_column(String(100))
     severity: Mapped[str] = mapped_column(String(15))
+    severity_reviewed: Mapped[bool] = mapped_column(Boolean, default=False, server_default='false')
     cvss_score: Mapped[float] = mapped_column(Float)
     cvss_vector: Mapped[str] = mapped_column(String(180))
     poc_steps: Mapped[str] = mapped_column(Text)

@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from uuid import uuid4
 from sqlalchemy import Boolean, CheckConstraint, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .database import Base
@@ -30,7 +31,8 @@ class Company(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id'), unique=True)
     company_name: Mapped[str] = mapped_column(String(160))
-    tax_id: Mapped[str] = mapped_column(String(80), unique=True)
+    # Legacy NOT NULL/UNIQUE column: internal identifier for new companies, never requested or exposed.
+    tax_id: Mapped[str] = mapped_column(String(80), unique=True, default=lambda: 'internal:' + uuid4().hex)
     industry: Mapped[str] = mapped_column(String(100))
     website_url: Mapped[str] = mapped_column(String(500))
     is_approved: Mapped[bool] = mapped_column(Boolean, default=False)
@@ -51,6 +53,7 @@ class Program(Base):
     out_of_scope: Mapped[str] = mapped_column(Text)
     rules: Mapped[str] = mapped_column(Text)
     bounty_type: Mapped[str] = mapped_column(String(10))
+    currency: Mapped[str] = mapped_column(String(3), default='AZN', server_default='AZN')
     reward_low: Mapped[int] = mapped_column(Integer, default=50)
     reward_medium: Mapped[int] = mapped_column(Integer, default=150)
     reward_high: Mapped[int] = mapped_column(Integer, default=500)

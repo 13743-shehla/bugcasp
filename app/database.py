@@ -1,7 +1,7 @@
 import logging
 from threading import Lock
 from fastapi import HTTPException
-from sqlalchemy import create_engine, event, text
+from sqlalchemy import create_engine, event, text, inspect
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from .config import settings
 
@@ -53,6 +53,7 @@ def initialize_database():
             if postgres:
                 connection.execute(text('SELECT pg_advisory_xact_lock(724923611)'))
             Base.metadata.create_all(connection)
+            migrate_currency(connection)
             if postgres:
                 # FastAPI owns authorization; deny direct anonymous Data API access.
                 for table in Base.metadata.sorted_tables:
@@ -72,3 +73,11 @@ def get_db():
             raise HTTPException(503, 'Server sazlanması tamamlanmayıb və ya baza əlçatan deyil.')
     with SessionLocal() as session:
         yield session
+
+
+def migrate_currency(connection):
+    """Old program amounts were USD; never relabel or convert them implicitly."""
+    if 'currency' not in {c['name'] for c in inspect(connection).get_columns('programs')}:
+        connection.execute(text("ALTER TABLE programs ADD COLUMN currency VARCHAR(3) NOT NULL DEFAULT 'USD'"))
+    if connection.dialect.name == 'postgresql':
+        connection.execute(text("ALTER TABLE programs ALTER COLUMN currency SET DEFAULT 'AZN'"))

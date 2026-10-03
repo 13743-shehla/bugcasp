@@ -6,17 +6,17 @@ def user_view(user):
     return {key: getattr(user, key) for key in ('id', 'username', 'email', 'role', 'is_email_verified', 'reputation_score', 'bio', 'github', 'tryhackme', 'hackthebox')}
 
 def program_view(program):
-    result = {key: getattr(program, key) for key in ('id', 'title', 'target_url', 'in_scope', 'out_of_scope', 'rules', 'bounty_type', 'reward_low', 'reward_medium', 'reward_high', 'reward_critical', 'is_approved', 'is_active', 'review_state', 'review_note', 'created_at')}
+    result = {key: getattr(program, key) for key in ('id', 'title', 'target_url', 'in_scope', 'out_of_scope', 'rules', 'bounty_type', 'currency', 'reward_low', 'reward_medium', 'reward_high', 'reward_critical', 'is_approved', 'is_active', 'review_state', 'review_note', 'created_at')}
     result.update(company_name=program.company.company_name, industry=program.company.industry)
     return result
 
 def report_view(report):
     result = {key: getattr(report, key) for key in ('id', 'program_id', 'title', 'cwe_category', 'severity', 'cvss_score', 'cvss_vector', 'poc_steps', 'impact', 'http_payload', 'attachment_path', 'status', 'reputation_awarded', 'cash_awarded', 'payout_paid', 'dispute', 'mediation', 'created_at')}
-    result.update(program_title=report.program.title, hacker=report.hacker.username)
+    result.update(program_title=report.program.title, hacker=report.hacker.username, currency=report.program.currency)
     return result
 
 def company_view(company):
-    return {key: getattr(company, key) for key in ('id', 'company_name', 'tax_id', 'industry', 'website_url', 'is_approved', 'review_state', 'review_note', 'created_at')}
+    return {key: getattr(company, key) for key in ('id', 'company_name', 'industry', 'website_url', 'is_approved', 'review_state', 'review_note', 'created_at')}
 
 def own_company(db, user, approved=False):
     company = db.scalar(select(Company).where(Company.user_id == user.id))

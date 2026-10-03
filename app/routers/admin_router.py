@@ -58,8 +58,9 @@ def status(report_id: int, data: StatusUpdate, db: Session = Depends(get_db), us
 
 @router.get('/analytics')
 def analytics(db: Session = Depends(get_db)):
-    total_paid = db.scalar(select(func.coalesce(func.sum(Report.cash_awarded), 0)).where(Report.payout_paid.is_(True)))
-    return {'total_payouts': total_paid, 'active_programs': db.scalar(select(func.count(Program.id)).join(Company).where(Program.is_approved.is_(True), Program.is_active.is_(True), Company.is_approved.is_(True))), 'pending_reports': db.scalar(select(func.count(Report.id)).where(Report.status.in_(['New', 'Triaged']))), 'researchers': db.scalar(select(func.count(User.id)).where(User.role == 'hacker', User.is_email_verified.is_(True))), 'top_researchers': [{'username': u.username, 'reputation_score': u.reputation_score} for u in db.scalars(select(User).where(User.role == 'hacker', User.is_email_verified.is_(True)).order_by(User.reputation_score.desc()).limit(5))]}
+    totals = dict(db.execute(select(Program.currency, func.sum(Report.cash_awarded)).join(Report).where(Report.payout_paid.is_(True)).group_by(Program.currency)).all())
+    total_paid = totals.get('AZN', 0)
+    return {'total_payouts': total_paid, 'payouts_by_currency': totals, 'currency': 'AZN', 'active_programs': db.scalar(select(func.count(Program.id)).join(Company).where(Program.is_approved.is_(True), Program.is_active.is_(True), Company.is_approved.is_(True))), 'pending_reports': db.scalar(select(func.count(Report.id)).where(Report.status.in_(['New', 'Triaged']))), 'researchers': db.scalar(select(func.count(User.id)).where(User.role == 'hacker', User.is_email_verified.is_(True))), 'top_researchers': [{'username': u.username, 'reputation_score': u.reputation_score} for u in db.scalars(select(User).where(User.role == 'hacker', User.is_email_verified.is_(True)).order_by(User.reputation_score.desc()).limit(5))]}
 
 @router.get('/audit')
 def audit(db: Session = Depends(get_db)):

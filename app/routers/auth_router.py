@@ -39,11 +39,11 @@ def register(data: Register, request: Request, db: Session = Depends(get_db)):
         db.add(user)
         db.flush()
         if data.role == 'company':
-            db.add(Company(user_id=user.id, company_name=data.company_name, tax_id=data.tax_id, industry=data.industry, website_url=data.website_url))
+            db.add(Company(user_id=user.id, company_name=data.company_name, industry=data.industry, website_url=data.website_url))
         db.commit()
     except IntegrityError:
         db.rollback()
-        raise HTTPException(409, 'Email, handle or Tax ID already registered.')
+        raise HTTPException(409, 'Email or handle already registered.')
     delivery = issue_verification(db, user)
     return {'message': 'Registration is pending email verification.', 'email_delivery': delivery, 'is_email_verified': False}
 

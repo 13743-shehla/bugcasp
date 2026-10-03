@@ -11,7 +11,6 @@ class Register(BaseModel):
     tryhackme: str = Field(default='', max_length=500)
     hackthebox: str = Field(default='', max_length=500)
     company_name: str = Field(default='', max_length=160)
-    tax_id: str = Field(default='', max_length=80)
     industry: str = Field(default='', max_length=100)
     website_url: str = Field(default='', max_length=500)
 
@@ -31,8 +30,8 @@ class Register(BaseModel):
 
     @model_validator(mode='after')
     def company_fields(self):
-        if self.role == 'company' and not all(s.strip() for s in (self.company_name, self.tax_id, self.industry, self.website_url)):
-            raise ValueError('Company name, Tax ID / VOEN, industry and website are required.')
+        if self.role == 'company' and not all(s.strip() for s in (self.company_name, self.industry, self.website_url)):
+            raise ValueError('Company name, industry and website are required.')
         return self
 
 class Login(BaseModel):

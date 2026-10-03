@@ -8,10 +8,10 @@ from sqlalchemy.orm import Session
 from ..auth import current_user, passwords, dummy_hash, create_token, rate_limit
 from ..config import settings
 from ..database import get_db
-from ..models import User, Company, Verification, AuditEvent, now
-from ..schemas import Register, Login, EmailCheck, Verify, AccountUpdate
+from ..models import User, Company, Verification, PasswordReset, AuditEvent, now
+from ..schemas import Register, Login, EmailCheck, Verify, AccountUpdate, ResetPassword
 from ..services import user_view
-from ..email_verifier import verify_email_domain, send_verification, send_welcome
+from ..email_verifier import verify_email_domain, send_verification, send_welcome, send_password_reset
 
 router = APIRouter(prefix='/api/auth', tags=['Authentication'])
 
@@ -125,3 +125,37 @@ def change_account(data: AccountUpdate, request: Request, response: Response, db
     token = create_token(user)
     response.set_cookie('bugcasp_session', token, httponly=True, secure=settings.cookie_secure, samesite='strict', max_age=28800)
     return {'message': 'Hesab yeniləndi. Köhnə sessiyalar bağlandı.', 'user': user_view(user), 'access_token': token, 'token_type': 'bearer'}
+
+@router.post('/forgot-password')
+def forgot_password(data: EmailCheck, request: Request, db: Session = Depends(get_db)):
+    rate_limit(request, 'forgot-password', 5, db=db)
+    user = db.scalar(select(User).where(User.email == data.email.strip().lower(), User.is_email_verified.is_(True)))
+    if user:
+        token = secrets.token_urlsafe(32)
+        db.execute(delete(PasswordReset).where(PasswordReset.user_id == user.id))
+        db.add(PasswordReset(user_id=user.id, token_hash=hashlib.sha256(token.encode()).hexdigest(), token_version=user.token_version, expires_at=now() + timedelta(minutes=30)))
+        db.commit()
+        send_password_reset(user, token)
+    return {'message': 'Bu e-poçtla təsdiqlənmiş hesab varsa, bərpa keçidi göndərilməsi istənildi. Gələnlər və spam qovluğunu yoxlayın.'}
+
+@router.post('/reset-password')
+def reset_password(data: ResetPassword, request: Request, response: Response, db: Session = Depends(get_db)):
+    rate_limit(request, 'reset-password', 10, db=db)
+    invalid = 'Bərpa keçidi etibarsızdır və ya vaxtı bitib. Yeni keçid istəyin.'
+    record = db.scalar(select(PasswordReset).where(PasswordReset.token_hash == hashlib.sha256(data.token.encode()).hexdigest(), PasswordReset.expires_at > now()))
+    if not record:
+        raise HTTPException(400, invalid)
+    user_id, version = record.user_id, record.token_version
+    consumed = db.execute(delete(PasswordReset).where(PasswordReset.id == record.id))
+    if consumed.rowcount != 1:
+        db.rollback()
+        raise HTTPException(400, invalid)
+    changed = db.execute(update(User).where(User.id == user_id, User.token_version == version, User.is_email_verified.is_(True), User.email.is_not(None)).values(password_hash=passwords.hash(data.new_password), token_version=User.token_version + 1))
+    if changed.rowcount != 1:
+        db.rollback()
+        raise HTTPException(400, invalid)
+    db.execute(delete(PasswordReset).where(PasswordReset.user_id == user_id))
+    db.add(AuditEvent(actor_id=user_id, subject=f'user:{user_id}', action='Password reset; previous sessions revoked.'))
+    db.commit()
+    response.delete_cookie('bugcasp_session', secure=settings.cookie_secure, httponly=True, samesite='strict')
+    return {'message': 'Şifrəniz yeniləndi. Yeni şifrə ilə daxil olun.'}

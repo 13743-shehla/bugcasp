@@ -93,3 +93,14 @@ class AccountUpdate(BaseModel):
         if self.username is None and self.new_password is None:
             raise ValueError('Yeni istifadəçi adı və ya şifrə daxil edin.')
         return self
+
+class ResetPassword(BaseModel):
+    token: str = Field(min_length=20, max_length=200)
+    new_password: str = Field(min_length=12, max_length=72)
+
+    @field_validator('new_password')
+    @classmethod
+    def password_bytes(cls, value):
+        if len(value.encode()) > 72:
+            raise ValueError('Şifrə 72 baytdan uzun olmamalıdır.')
+        return value

@@ -85,3 +85,7 @@ def send_verification(user, token):
 
 def send_welcome(user):
     return send_email(user.email, 'Welcome to BugCasp', f'<h2>Your email is verified, {html.escape(user.username)}.</h2><p>Your {html.escape(user.role)} account is ready. Company programs require platform approval before they become public.</p>')
+
+def send_password_reset(user, token):
+    link = settings.app_url.rstrip('/') + '/#reset=' + token
+    return send_email(user.email, 'BugCasp — şifrənin bərpası', f'<h2>Şifrəni yenilə</h2><p>Salam, {html.escape(user.username)}.</p><p>Bu keçid 30 dəqiqə etibarlıdır və yalnız bir dəfə istifadə olunur.</p><p><a href="{html.escape(link, quote=True)}">Yeni şifrə təyin et</a></p><p>Bu sorğunu siz göndərməmisinizsə, məktubu nəzərə almayın. Şifrəniz dəyişməyib.</p>')

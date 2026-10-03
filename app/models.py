@@ -116,3 +116,11 @@ class RateLimit(Base):
     key: Mapped[str] = mapped_column(String(64), primary_key=True)
     window_start: Mapped[int] = mapped_column(Integer, primary_key=True)
     count: Mapped[int] = mapped_column(Integer, default=0)
+
+class PasswordReset(Base):
+    __tablename__ = 'password_resets'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
+    token_hash: Mapped[str] = mapped_column(String(64), unique=True)
+    token_version: Mapped[int] = mapped_column(Integer)
+    expires_at: Mapped[datetime] = mapped_column(DateTime)

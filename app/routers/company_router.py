@@ -38,6 +38,8 @@ def owned_program(db, user, program_id):
 @router.put('/programs/{program_id}/active')
 def set_active(program_id: int, data: ActiveUpdate, db: Session = Depends(get_db), user: User = Depends(roles('company'))):
     program = owned_program(db, user, program_id)
+    if program.admin_suspended and data.is_active:
+        raise HTTPException(409, 'Proqram admin tərəfindən dayandırılıb.')
     program.is_active = data.is_active
     db.commit()
     return program_view(program)

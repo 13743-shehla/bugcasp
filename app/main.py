@@ -17,7 +17,7 @@ from app.models import User
 from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
 import logging
-from app.routers import auth_router, admin_router, company_router, hacker_router
+from app.routers import auth_router, admin_router, company_router, hacker_router, management_router
 
 @asynccontextmanager
 async def lifespan(app):
@@ -55,7 +55,7 @@ async def security(request: Request, call_next):
             response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https://fastapi.tiangolo.com; connect-src 'self'; frame-ancestors 'self'"
     return response
 
-for router in (auth_router.router, admin_router.router, company_router.router, hacker_router.router):
+for router in (auth_router.router, admin_router.router, company_router.router, hacker_router.router, management_router.router):
     app.include_router(router)
 
 @app.get('/api/health')

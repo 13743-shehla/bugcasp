@@ -23,8 +23,8 @@
   <script src="/static/tailwind-config.js" defer></script>
   <script src="/static/i18n.js"></script>
   <script src="/static/theme.js"></script>
-  <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/landing.css">
-  <script src="/static/config.js" defer></script><script src="/static/landing.js" defer></script><script src="/static/app.js" defer></script>
+  <link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/landing.css"><link rel="stylesheet" href="/static/management.css">
+  <script src="/static/config.js" defer></script><script src="/static/landing.js" defer></script><script src="/static/management.js" defer></script><script src="/static/app.js" defer></script>
 </head>
 <body>
 <div id="startup-screen" role="status" aria-live="polite"><div><div class="startup-mark" aria-hidden="true"><img src="/static/logo.png" alt=""></div><div class="startup-name" translate="no">Bug<span>Casp</span></div><p class="startup-message">Yüklənir…</p><noscript><p>BugCasp üçün JavaScript-i aktivləşdirin.</p></noscript></div></div>
@@ -38,6 +38,7 @@
   <div class="main-shell">
     <header class="topbar"><a class="landing-brand" href="#home" aria-label="BugCasp"><img src="/static/logo.png" alt=""><span translate="no">Bug<span class="cyan">Casp</span></span></a><div class="breadcrumb">İş sahəsi <span>/</span> <strong id="crumb">Proqramlar</strong></div><div class="topbar-actions"><label class="sr-only" for="language-select">Dil seçimi</label><select id="language-select" data-language-select class="language-select" aria-label="Dil seçimi"><option translate="no" value="az">Azərbaycan</option><option translate="no" value="en">English</option><option translate="no" value="ru">Русский</option></select><button id="theme-toggle" class="btn theme-toggle" type="button" aria-label="Qaranlıq rejim" aria-pressed="false">☾ Qaranlıq rejim</button><div id="account" class="account"></div></div></header>
     <div id="preview-notice" hidden class="preview-notice"><span><strong>İnterfeys önizləməsi</strong> · Nümunə məlumatları. Dəyişikliklər saxlanılmır, e-poçt göndərilmir.</span><label>Rol <select id="demo-role"><option value="hacker">Tədqiqatçı</option><option value="company">Şirkət</option><option value="superadmin">Admin</option><option value="guest">Qonaq</option></select></label></div>
+    <div id="site-announcements" hidden></div>
     <main id="main" tabindex="-1" aria-live="polite"><div class="empty">BugCasp yüklənir…</div></main>
     <footer><span>© <span id="year"></span> BugCasp</span><span>Yalnız icazə verilən hədəfləri araşdırın.</span></footer>
   </div>

@@ -10,7 +10,7 @@ from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from .config import settings
 from .database import get_db, SessionLocal
-from .models import User, RateLimit
+from .models import User, RateLimit, now
 from sqlalchemy import delete
 
 passwords = CryptContext(schemes=['bcrypt'], deprecated='auto')
@@ -66,7 +66,7 @@ def current_user(request: Request, db: Session = Depends(get_db)):
     try:
         payload = jwt.decode(token or '', settings.jwt_secret, algorithms=['HS256'], audience='bugcasp', issuer='bugcasp', options={'require': ['exp', 'sub', 'role', 'user_id', 'ver']})
         user = db.get(User, int(payload['sub']))
-        if not user or not user.is_email_verified or user.role != payload['role'] or user.id != payload['user_id'] or user.token_version != payload['ver']:
+        if not user or (user.blocked_until and user.blocked_until > now()) or not user.is_email_verified or user.role != payload['role'] or user.id != payload['user_id'] or user.token_version != payload['ver']:
             raise ValueError()
         return user
     except (jwt.PyJWTError, ValueError, TypeError):

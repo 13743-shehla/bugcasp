@@ -83,6 +83,8 @@ def login(data: Login, request: Request, response: Response, db: Session = Depen
         valid = False
     if not user or not valid:
         raise HTTPException(401, 'İstifadəçi adı, e-poçt və ya şifrə yanlışdır.')
+    if user.blocked_until and user.blocked_until > now():
+        raise HTTPException(403, 'Hesab müvəqqəti bloklanıb: ' + user.block_reason)
     if not user.is_email_verified:
         raise HTTPException(403, 'Verify your email before signing in.')
     token = create_token(user)

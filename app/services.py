@@ -1,24 +1,28 @@
 from sqlalchemy import select, update, func
 from fastapi import HTTPException
-from .models import User, Company, Program, Report, AuditEvent
+from .models import User, Company, Program, Report, AuditEvent, now
 
 def user_view(user):
-    return {key: getattr(user, key) for key in ('id', 'username', 'email', 'role', 'is_email_verified', 'reputation_score', 'bio', 'github', 'tryhackme', 'hackthebox')}
+    result = {key: getattr(user, key) for key in ('id', 'username', 'email', 'role', 'is_email_verified', 'reputation_score', 'bio', 'github', 'tryhackme', 'hackthebox')}
+    result['avatar_url'] = '/api/media/' + user.avatar_id if user.avatar_id else None
+    return result
 
 def program_view(program):
-    result = {key: getattr(program, key) for key in ('id', 'title', 'target_url', 'in_scope', 'out_of_scope', 'rules', 'bounty_type', 'currency', 'reward_low', 'reward_medium', 'reward_high', 'reward_critical', 'is_approved', 'is_active', 'review_state', 'review_note', 'created_at')}
-    result.update(company_name=program.company.company_name, industry=program.company.industry)
+    result = {key: getattr(program, key) for key in ('id', 'title', 'target_url', 'in_scope', 'out_of_scope', 'rules', 'bounty_type', 'currency', 'reward_low', 'reward_medium', 'reward_high', 'reward_critical', 'is_approved', 'is_active', 'admin_suspended', 'suspension_reason', 'review_state', 'review_note', 'created_at')}
+    result.update(company_name=program.company.company_name, industry=program.company.industry, logo_url='/api/media/' + program.company.logo_id if program.company.logo_id else None)
     return result
 
 def report_view(report):
-    result = {key: getattr(report, key) for key in ('id', 'program_id', 'title', 'cwe_category', 'severity', 'severity_reviewed', 'poc_steps', 'impact', 'http_payload', 'attachment_path', 'status', 'reputation_awarded', 'cash_awarded', 'payout_paid', 'dispute', 'mediation', 'created_at')}
+    result = {key: getattr(report, key) for key in ('id', 'program_id', 'title', 'cwe_category', 'severity', 'severity_reviewed', 'poc_steps', 'impact', 'http_payload', 'attachment_path', 'status', 'reputation_awarded', 'cash_awarded', 'payout_paid', 'dispute', 'dispute_open', 'reviewer_note', 'mediation', 'created_at')}
     if not report.severity_reviewed:
         result['severity'] = None
     result.update(program_title=report.program.title, hacker=report.hacker.username, currency=report.program.currency)
     return result
 
 def company_view(company):
-    return {key: getattr(company, key) for key in ('id', 'company_name', 'industry', 'website_url', 'is_approved', 'review_state', 'review_note', 'created_at')}
+    result = {key: getattr(company, key) for key in ('id', 'company_name', 'industry', 'website_url', 'is_approved', 'review_state', 'review_note', 'created_at')}
+    result['logo_url'] = '/api/media/' + company.logo_id if company.logo_id else None
+    return result
 
 def own_company(db, user, approved=False):
     company = db.scalar(select(Company).where(Company.user_id == user.id))
@@ -30,7 +34,7 @@ def own_company(db, user, approved=False):
 
 def visible_program(db, program_id):
     program = db.get(Program, program_id)
-    if not program or not program.is_active or not program.is_approved or not program.company.is_approved:
+    if not program or not program.is_active or program.admin_suspended or (program.company.user.blocked_until and program.company.user.blocked_until > now()) or not program.is_approved or not program.company.is_approved:
         raise HTTPException(404, 'Active program not found.')
     return program
 
@@ -68,6 +72,8 @@ def update_status(db, report, actor, data):
         won = db.execute(update(Report).where(Report.id == report.id, Report.reputation_awarded == 0).values(reputation_awarded=points, cash_awarded=reward if report.program.bounty_type == 'cash' else 0))
         if won.rowcount:
             db.execute(update(User).where(User.id == report.hacker_id).values(reputation_score=User.reputation_score + points))
+    if actor.role == 'company' and data.note:
+        report.reviewer_note = data.note
     if actor.role == 'superadmin' and data.note:
         report.mediation = data.note
     db.add(AuditEvent(actor_id=actor.id, subject=f'report:{report.id}', action=f'{old} -> {data.status}; severity={severity or "unassigned"}: {data.note}'))

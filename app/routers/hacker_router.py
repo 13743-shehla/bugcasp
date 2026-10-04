@@ -3,14 +3,14 @@ from pathlib import Path
 from uuid import uuid4
 from pypdf import PdfReader
 from fastapi import APIRouter, Depends, HTTPException, Form, File, UploadFile
-from sqlalchemy import select, func
+from sqlalchemy import select, func, or_
 from sqlalchemy.orm import Session
 from ..auth import roles
 from ..config import settings
 from ..storage import save_evidence, delete_evidence
 import logging
 from ..database import get_db
-from ..models import User, Company, Program, Report, AuditEvent
+from ..models import User, Company, Program, Report, AuditEvent, now
 from ..schemas import Note
 from ..services import visible_program, program_view, report_view, accessible_report
 
@@ -18,7 +18,7 @@ router = APIRouter(prefix='/api/hacker', tags=['Researcher'])
 
 @router.get('/programs')
 def programs(db: Session = Depends(get_db)):
-    return [program_view(p) for p in db.scalars(select(Program).join(Company).where(Program.is_approved.is_(True), Program.is_active.is_(True), Company.is_approved.is_(True)).order_by(Program.id.desc()))]
+    return [program_view(p) for p in db.scalars(select(Program).join(Company).join(User, Company.user_id == User.id).where(Program.admin_suspended.is_(False), or_(User.blocked_until.is_(None), User.blocked_until <= now()), Program.is_approved.is_(True), Program.is_active.is_(True), Company.is_approved.is_(True)).order_by(Program.id.desc()))]
 
 @router.get('/programs/{program_id}')
 def program(program_id: int, db: Session = Depends(get_db)):
@@ -91,6 +91,7 @@ def reports(db: Session = Depends(get_db), user: User = Depends(roles('hacker'))
 def dispute(report_id: int, data: Note, db: Session = Depends(get_db), user: User = Depends(roles('hacker'))):
     report = accessible_report(db, user, report_id)
     report.dispute = data.note
+    report.dispute_open = True
     db.add(AuditEvent(actor_id=user.id, subject=f'report:{report.id}', action='Dispute: ' + data.note))
     db.commit()
     return report_view(report)
@@ -98,5 +99,5 @@ def dispute(report_id: int, data: Note, db: Session = Depends(get_db), user: Use
 @router.get('/leaderboard')
 def leaderboard(db: Session = Depends(get_db)):
     resolved = select(Report.hacker_id, func.count(Report.id).label('count')).where(Report.status == 'Resolved').group_by(Report.hacker_id).subquery()
-    rows = db.execute(select(User, func.coalesce(resolved.c.count, 0)).outerjoin(resolved, resolved.c.hacker_id == User.id).where(User.role == 'hacker', User.is_email_verified.is_(True)).order_by(User.reputation_score.desc(), User.id).limit(100))
-    return [{'username': u.username, 'bio': u.bio, 'github': u.github, 'tryhackme': u.tryhackme, 'hackthebox': u.hackthebox, 'reputation_score': u.reputation_score, 'resolved_bugs': count} for u, count in rows]
+    rows = db.execute(select(User, func.coalesce(resolved.c.count, 0)).outerjoin(resolved, resolved.c.hacker_id == User.id).where(or_(User.blocked_until.is_(None), User.blocked_until <= now()), User.role == 'hacker', User.is_email_verified.is_(True)).order_by(User.reputation_score.desc(), User.id).limit(100))
+    return [{'avatar_url': '/api/media/' + u.avatar_id if u.avatar_id else None, 'username': u.username, 'bio': u.bio, 'github': u.github, 'tryhackme': u.tryhackme, 'hackthebox': u.hackthebox, 'reputation_score': u.reputation_score, 'resolved_bugs': count} for u, count in rows]

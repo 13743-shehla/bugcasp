@@ -370,3 +370,90 @@ Ad yoxlanmadı. Saxlayarkən yenidən yoxlanacaq.|Could not check the name. It w
 Tədqiqatçı hesabı tələb olunur.|A researcher account is required.|Требуется аккаунт исследователя.
 Profil yeniləndi.|Profile updated.|Профиль обновлён.
 Önizləmə: dəyişikliklər səhifə yenilənənədək saxlanılır.|Preview: changes last until the page is reloaded.|Предпросмотр: изменения сохраняются до перезагрузки страницы.
+
+Admin bölmələri|Admin sections|Разделы администратора
+İcmal|Overview|Обзор
+İstifadəçilər|Users|Пользователи
+Statistika|Statistics|Статистика
+Mübahisələr|Disputes|Споры
+Əməliyyat tarixçəsi|Activity history|История действий
+Bildiriş mərkəzi|Notifications|Уведомления
+Sayt elanları|Site announcements|Объявления сайта
+Proqram nəzarəti|Program controls|Управление программами
+Şirkət loqosu|Company logo|Логотип компании
+Profil şəkli|Profile picture|Фото профиля
+JPG, PNG və WebP · maksimum 2 MB. Şəkil ictimai görünəcək.|JPG, PNG and WebP · up to 2 MB. The image will be public.|JPG, PNG и WebP · до 2 МБ. Изображение будет общедоступным.
+Şəkil seçin|Choose an image|Выберите изображение
+Şəkli yüklə|Upload image|Загрузить изображение
+Şəkli sil|Remove image|Удалить изображение
+Məlumat yoxdur.|No records found.|Записей нет.
+Əvvəlki|Previous|Предыдущая
+Növbəti|Next|Следующая
+Axtarış|Search|Поиск
+Bütün rollar|All roles|Все роли
+Axtar|Search|Найти
+Bu əməliyyat üçün canlı hesabla daxil olun.|Sign in to a live account for this action.|Для этого действия войдите в настоящий аккаунт.
+İstifadəçi|User|Пользователь
+Vəziyyət|State|Состояние
+Əməliyyat|Action|Действие
+Bloklanıb|Blocked|Заблокирован
+Profilə bax|View profile|Посмотреть профиль
+Bloku aç|Unblock|Разблокировать
+Blokla|Block|Заблокировать
+Admin dayandırıb|Suspended by admin|Приостановлено администратором
+Məhdudiyyəti qaldır|Lift restriction|Снять ограничение
+Tarix|Date|Дата
+Obyekt|Subject|Объект
+Başlanğıc tarixi|Start date|Начальная дата
+Son tarix|End date|Конечная дата
+Filtrlə|Filter|Фильтровать
+Sıfırla|Reset|Сбросить
+Tarix filtri qeydlərin yaradılma tarixinə görə tətbiq olunur (UTC). Statuslar cari vəziyyəti göstərir.|Dates filter records by creation time (UTC). Statuses reflect their current state.|Даты фильтруют записи по времени создания (UTC). Статусы отражают текущее состояние.
+Şirkətlər|Companies|Компании
+Hesabatlar|Reports|Отчёты
+Gözləyən şirkətlər|Pending companies|Ожидающие компании
+Gözləyən proqramlar|Pending programs|Ожидающие программы
+Seçilmiş hesabatlar üzrə|For selected reports|По выбранным отчётам
+Gözləyən işlər|Pending tasks|Ожидающие задачи
+Qərar verilən müraciətlər siyahıdan avtomatik çıxır.|Handled requests leave this list automatically.|Обработанные заявки автоматически исчезают из списка.
+Admin baxışı tələb olunur|Admin review required|Требуется проверка администратора
+Yenilə|Refresh|Обновить
+Açıq|Open|Открыт
+Bağlanmış|Closed|Закрыт
+Yeni elan|New announcement|Новое объявление
+Başlıq|Title|Заголовок
+Yayımlanıb|Published|Опубликовано
+Qaralama|Draft|Черновик
+Redaktə et|Edit|Редактировать
+Blok müddəti (gün)|Block duration (days)|Срок блокировки (дней)
+İstifadəçini blokla|Block user|Заблокировать пользователя
+Proqramı dayandır|Suspend program|Приостановить программу
+Səbəb|Reason|Причина
+Sayt elanı|Site announcement|Объявление сайта
+Mətn|Text|Текст
+Saytda göstər|Show on site|Показывать на сайте
+Yadda saxla|Save|Сохранить
+Hesabat müzakirəsi|Report discussion|Обсуждение отчёта
+İzahınız|Your explanation|Ваше пояснение
+Göndər|Send|Отправить
+Hələ mesaj yoxdur.|No messages yet.|Сообщений пока нет.
+İstifadəçi profili|User profile|Профиль пользователя
+E-poçt təsdiqlənib|Email verified|Почта подтверждена
+E-poçt təsdiqlənməyib|Email unverified|Почта не подтверждена
+Mübahisəni bağla|Close dispute|Закрыть спор
+Qərar və əsaslandırma|Decision and reasoning|Решение и обоснование
+Bu qərar tərəflərə görünəcək. Hesabat statusu ayrıca dəyişdirilir.|Both parties will see this decision. Report status is changed separately.|Обе стороны увидят это решение. Статус отчёта изменяется отдельно.
+Şəkil boş olmamalı və 2 MB həddini keçməməlidir.|The image must not be empty or exceed 2 MB.|Изображение не должно быть пустым или превышать 2 МБ.
+Şəkil yeniləndi.|Image updated.|Изображение обновлено.
+Şirkət portalında yüklədiyiniz loqo proqramın başlığında görünür.|The logo uploaded in the company portal appears in the program header.|Логотип из кабинета компании отображается в заголовке программы.
+Şirkətin izahı|Company explanation|Пояснение компании
+Müzakirə və izahlar|Discussion and explanations|Обсуждение и пояснения
+JPG, PNG və ya WebP şəkli seçin (maksimum 16 meqapiksel).|Choose a JPG, PNG or WebP image (up to 16 megapixels).|Выберите JPG, PNG или WebP (до 16 мегапикселей).
+Şəkil tapılmadı.|Image not found.|Изображение не найдено.
+İstifadəçi tapılmadı.|User not found.|Пользователь не найден.
+Admin hesabı bloklana bilməz.|Admin accounts cannot be blocked.|Аккаунт администратора нельзя заблокировать.
+Proqram admin tərəfindən dayandırılıb.|The program was suspended by an admin.|Программа приостановлена администратором.
+Tarix aralığı yanlışdır.|Invalid date range.|Неверный диапазон дат.
+Mübahisə artıq bağlanıb.|The dispute is already closed.|Спор уже закрыт.
+Elan tapılmadı.|Announcement not found.|Объявление не найдено.
+Hesab müvəqqəti bloklanıb:|Account temporarily blocked:|Аккаунт временно заблокирован:

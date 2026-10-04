@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from uuid import uuid4
-from sqlalchemy import Boolean, CheckConstraint, DateTime, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, LargeBinary, CheckConstraint, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .database import Base
 
@@ -18,6 +18,9 @@ class User(Base):
     role: Mapped[str] = mapped_column(String(20))
     reputation_score: Mapped[int] = mapped_column(Integer, default=0)
     token_version: Mapped[int] = mapped_column(Integer, default=0)
+    avatar_id: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    blocked_until: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    block_reason: Mapped[str] = mapped_column(Text, default='', server_default='')
     bio: Mapped[str] = mapped_column(Text, default='')
     github: Mapped[str] = mapped_column(String(500), default='')
     tryhackme: Mapped[str] = mapped_column(String(500), default='')
@@ -30,6 +33,7 @@ class Company(Base):
     __tablename__ = 'companies'
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id'), unique=True)
+    logo_id: Mapped[str | None] = mapped_column(String(32), nullable=True)
     company_name: Mapped[str] = mapped_column(String(160))
     # Legacy NOT NULL/UNIQUE column: internal identifier for new companies, never requested or exposed.
     tax_id: Mapped[str] = mapped_column(String(80), unique=True, default=lambda: 'internal:' + uuid4().hex)
@@ -59,6 +63,8 @@ class Program(Base):
     reward_high: Mapped[int] = mapped_column(Integer, default=500)
     reward_critical: Mapped[int] = mapped_column(Integer, default=1500)
     is_approved: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
+    admin_suspended: Mapped[bool] = mapped_column(Boolean, default=False, server_default='false')
+    suspension_reason: Mapped[str] = mapped_column(Text, default='', server_default='')
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     review_state: Mapped[str] = mapped_column(String(20), default='pending')
     review_note: Mapped[str] = mapped_column(Text, default='')
@@ -87,6 +93,8 @@ class Report(Base):
     cash_awarded: Mapped[int] = mapped_column(Integer, default=0)
     payout_paid: Mapped[bool] = mapped_column(Boolean, default=False)
     dispute: Mapped[str] = mapped_column(Text, default='')
+    dispute_open: Mapped[bool] = mapped_column(Boolean, default=False, server_default='false')
+    reviewer_note: Mapped[str] = mapped_column(Text, default='', server_default='')
     mediation: Mapped[str] = mapped_column(Text, default='')
     created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
     program: Mapped[Program] = relationship(back_populates='reports')
@@ -125,3 +133,26 @@ class PasswordReset(Base):
     token_hash: Mapped[str] = mapped_column(String(64), unique=True)
     token_version: Mapped[int] = mapped_column(Integer)
     expires_at: Mapped[datetime] = mapped_column(DateTime)
+
+
+class MediaImage(Base):
+    __tablename__ = 'media_images'
+    id: Mapped[str] = mapped_column(String(32), primary_key=True)
+    owner_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
+    content: Mapped[bytes] = mapped_column(LargeBinary)
+
+class Announcement(Base):
+    __tablename__ = 'announcements'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(160))
+    body: Mapped[str] = mapped_column(Text)
+    active: Mapped[bool] = mapped_column(Boolean, default=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)
+
+class ReportMessage(Base):
+    __tablename__ = 'report_messages'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    report_id: Mapped[int] = mapped_column(ForeignKey('reports.id'), index=True)
+    author_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
+    body: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=now)

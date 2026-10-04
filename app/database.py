@@ -55,6 +55,7 @@ def initialize_database():
             Base.metadata.create_all(connection)
             migrate_currency(connection)
             migrate_manual_severity(connection)
+            migrate_admin_suite(connection)
             if postgres:
                 # FastAPI owns authorization; deny direct anonymous Data API access.
                 for table in Base.metadata.sorted_tables:
@@ -90,3 +91,19 @@ def migrate_manual_severity(connection):
         connection.execute(text("UPDATE reports SET severity_reviewed = FALSE WHERE status = 'New' AND reputation_awarded = 0"))
     if connection.dialect.name == 'postgresql':
         connection.execute(text("ALTER TABLE reports ALTER COLUMN severity_reviewed SET DEFAULT FALSE"))
+
+
+def migrate_admin_suite(connection):
+    additions = {
+        'users': {'avatar_id': 'VARCHAR(32)', 'blocked_until': 'TIMESTAMP', 'block_reason': "TEXT NOT NULL DEFAULT ''"},
+        'companies': {'logo_id': 'VARCHAR(32)'},
+        'programs': {'admin_suspended': 'BOOLEAN NOT NULL DEFAULT FALSE', 'suspension_reason': "TEXT NOT NULL DEFAULT ''"},
+        'reports': {'dispute_open': 'BOOLEAN NOT NULL DEFAULT FALSE', 'reviewer_note': "TEXT NOT NULL DEFAULT ''"},
+    }
+    for table, columns in additions.items():
+        existing = {c['name'] for c in inspect(connection).get_columns(table)}
+        for name, sql in columns.items():
+            if name not in existing:
+                connection.execute(text(f'ALTER TABLE {table} ADD COLUMN {name} {sql}'))
+                if name == 'dispute_open':
+                    connection.execute(text("UPDATE reports SET dispute_open = TRUE WHERE dispute <> '' AND mediation = ''"))

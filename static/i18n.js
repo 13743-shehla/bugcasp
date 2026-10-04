@@ -2070,6 +2070,431 @@ const messages = {
     "az": "Önizləmə: dəyişikliklər səhifə yenilənənədək saxlanılır.",
     "en": "Preview: changes last until the page is reloaded.",
     "ru": "Предпросмотр: изменения сохраняются до перезагрузки страницы."
+  },
+  "Admin bölmələri": {
+    "az": "Admin bölmələri",
+    "en": "Admin sections",
+    "ru": "Разделы администратора"
+  },
+  "İcmal": {
+    "az": "İcmal",
+    "en": "Overview",
+    "ru": "Обзор"
+  },
+  "İstifadəçilər": {
+    "az": "İstifadəçilər",
+    "en": "Users",
+    "ru": "Пользователи"
+  },
+  "Statistika": {
+    "az": "Statistika",
+    "en": "Statistics",
+    "ru": "Статистика"
+  },
+  "Mübahisələr": {
+    "az": "Mübahisələr",
+    "en": "Disputes",
+    "ru": "Споры"
+  },
+  "Əməliyyat tarixçəsi": {
+    "az": "Əməliyyat tarixçəsi",
+    "en": "Activity history",
+    "ru": "История действий"
+  },
+  "Bildiriş mərkəzi": {
+    "az": "Bildiriş mərkəzi",
+    "en": "Notifications",
+    "ru": "Уведомления"
+  },
+  "Sayt elanları": {
+    "az": "Sayt elanları",
+    "en": "Site announcements",
+    "ru": "Объявления сайта"
+  },
+  "Proqram nəzarəti": {
+    "az": "Proqram nəzarəti",
+    "en": "Program controls",
+    "ru": "Управление программами"
+  },
+  "Şirkət loqosu": {
+    "az": "Şirkət loqosu",
+    "en": "Company logo",
+    "ru": "Логотип компании"
+  },
+  "Profil şəkli": {
+    "az": "Profil şəkli",
+    "en": "Profile picture",
+    "ru": "Фото профиля"
+  },
+  "JPG, PNG və WebP · maksimum 2 MB. Şəkil ictimai görünəcək.": {
+    "az": "JPG, PNG və WebP · maksimum 2 MB. Şəkil ictimai görünəcək.",
+    "en": "JPG, PNG and WebP · up to 2 MB. The image will be public.",
+    "ru": "JPG, PNG и WebP · до 2 МБ. Изображение будет общедоступным."
+  },
+  "Şəkil seçin": {
+    "az": "Şəkil seçin",
+    "en": "Choose an image",
+    "ru": "Выберите изображение"
+  },
+  "Şəkli yüklə": {
+    "az": "Şəkli yüklə",
+    "en": "Upload image",
+    "ru": "Загрузить изображение"
+  },
+  "Şəkli sil": {
+    "az": "Şəkli sil",
+    "en": "Remove image",
+    "ru": "Удалить изображение"
+  },
+  "Məlumat yoxdur.": {
+    "az": "Məlumat yoxdur.",
+    "en": "No records found.",
+    "ru": "Записей нет."
+  },
+  "Əvvəlki": {
+    "az": "Əvvəlki",
+    "en": "Previous",
+    "ru": "Предыдущая"
+  },
+  "Növbəti": {
+    "az": "Növbəti",
+    "en": "Next",
+    "ru": "Следующая"
+  },
+  "Axtarış": {
+    "az": "Axtarış",
+    "en": "Search",
+    "ru": "Поиск"
+  },
+  "Bütün rollar": {
+    "az": "Bütün rollar",
+    "en": "All roles",
+    "ru": "Все роли"
+  },
+  "Axtar": {
+    "az": "Axtar",
+    "en": "Search",
+    "ru": "Найти"
+  },
+  "Bu əməliyyat üçün canlı hesabla daxil olun.": {
+    "az": "Bu əməliyyat üçün canlı hesabla daxil olun.",
+    "en": "Sign in to a live account for this action.",
+    "ru": "Для этого действия войдите в настоящий аккаунт."
+  },
+  "İstifadəçi": {
+    "az": "İstifadəçi",
+    "en": "User",
+    "ru": "Пользователь"
+  },
+  "Vəziyyət": {
+    "az": "Vəziyyət",
+    "en": "State",
+    "ru": "Состояние"
+  },
+  "Əməliyyat": {
+    "az": "Əməliyyat",
+    "en": "Action",
+    "ru": "Действие"
+  },
+  "Bloklanıb": {
+    "az": "Bloklanıb",
+    "en": "Blocked",
+    "ru": "Заблокирован"
+  },
+  "Profilə bax": {
+    "az": "Profilə bax",
+    "en": "View profile",
+    "ru": "Посмотреть профиль"
+  },
+  "Bloku aç": {
+    "az": "Bloku aç",
+    "en": "Unblock",
+    "ru": "Разблокировать"
+  },
+  "Blokla": {
+    "az": "Blokla",
+    "en": "Block",
+    "ru": "Заблокировать"
+  },
+  "Admin dayandırıb": {
+    "az": "Admin dayandırıb",
+    "en": "Suspended by admin",
+    "ru": "Приостановлено администратором"
+  },
+  "Məhdudiyyəti qaldır": {
+    "az": "Məhdudiyyəti qaldır",
+    "en": "Lift restriction",
+    "ru": "Снять ограничение"
+  },
+  "Tarix": {
+    "az": "Tarix",
+    "en": "Date",
+    "ru": "Дата"
+  },
+  "Obyekt": {
+    "az": "Obyekt",
+    "en": "Subject",
+    "ru": "Объект"
+  },
+  "Başlanğıc tarixi": {
+    "az": "Başlanğıc tarixi",
+    "en": "Start date",
+    "ru": "Начальная дата"
+  },
+  "Son tarix": {
+    "az": "Son tarix",
+    "en": "End date",
+    "ru": "Конечная дата"
+  },
+  "Filtrlə": {
+    "az": "Filtrlə",
+    "en": "Filter",
+    "ru": "Фильтровать"
+  },
+  "Sıfırla": {
+    "az": "Sıfırla",
+    "en": "Reset",
+    "ru": "Сбросить"
+  },
+  "Tarix filtri qeydlərin yaradılma tarixinə görə tətbiq olunur (UTC). Statuslar cari vəziyyəti göstərir.": {
+    "az": "Tarix filtri qeydlərin yaradılma tarixinə görə tətbiq olunur (UTC). Statuslar cari vəziyyəti göstərir.",
+    "en": "Dates filter records by creation time (UTC). Statuses reflect their current state.",
+    "ru": "Даты фильтруют записи по времени создания (UTC). Статусы отражают текущее состояние."
+  },
+  "Şirkətlər": {
+    "az": "Şirkətlər",
+    "en": "Companies",
+    "ru": "Компании"
+  },
+  "Hesabatlar": {
+    "az": "Hesabatlar",
+    "en": "Reports",
+    "ru": "Отчёты"
+  },
+  "Gözləyən şirkətlər": {
+    "az": "Gözləyən şirkətlər",
+    "en": "Pending companies",
+    "ru": "Ожидающие компании"
+  },
+  "Gözləyən proqramlar": {
+    "az": "Gözləyən proqramlar",
+    "en": "Pending programs",
+    "ru": "Ожидающие программы"
+  },
+  "Seçilmiş hesabatlar üzrə": {
+    "az": "Seçilmiş hesabatlar üzrə",
+    "en": "For selected reports",
+    "ru": "По выбранным отчётам"
+  },
+  "Gözləyən işlər": {
+    "az": "Gözləyən işlər",
+    "en": "Pending tasks",
+    "ru": "Ожидающие задачи"
+  },
+  "Qərar verilən müraciətlər siyahıdan avtomatik çıxır.": {
+    "az": "Qərar verilən müraciətlər siyahıdan avtomatik çıxır.",
+    "en": "Handled requests leave this list automatically.",
+    "ru": "Обработанные заявки автоматически исчезают из списка."
+  },
+  "Admin baxışı tələb olunur": {
+    "az": "Admin baxışı tələb olunur",
+    "en": "Admin review required",
+    "ru": "Требуется проверка администратора"
+  },
+  "Yenilə": {
+    "az": "Yenilə",
+    "en": "Refresh",
+    "ru": "Обновить"
+  },
+  "Açıq": {
+    "az": "Açıq",
+    "en": "Open",
+    "ru": "Открыт"
+  },
+  "Bağlanmış": {
+    "az": "Bağlanmış",
+    "en": "Closed",
+    "ru": "Закрыт"
+  },
+  "Yeni elan": {
+    "az": "Yeni elan",
+    "en": "New announcement",
+    "ru": "Новое объявление"
+  },
+  "Başlıq": {
+    "az": "Başlıq",
+    "en": "Title",
+    "ru": "Заголовок"
+  },
+  "Yayımlanıb": {
+    "az": "Yayımlanıb",
+    "en": "Published",
+    "ru": "Опубликовано"
+  },
+  "Qaralama": {
+    "az": "Qaralama",
+    "en": "Draft",
+    "ru": "Черновик"
+  },
+  "Redaktə et": {
+    "az": "Redaktə et",
+    "en": "Edit",
+    "ru": "Редактировать"
+  },
+  "Blok müddəti (gün)": {
+    "az": "Blok müddəti (gün)",
+    "en": "Block duration (days)",
+    "ru": "Срок блокировки (дней)"
+  },
+  "İstifadəçini blokla": {
+    "az": "İstifadəçini blokla",
+    "en": "Block user",
+    "ru": "Заблокировать пользователя"
+  },
+  "Proqramı dayandır": {
+    "az": "Proqramı dayandır",
+    "en": "Suspend program",
+    "ru": "Приостановить программу"
+  },
+  "Səbəb": {
+    "az": "Səbəb",
+    "en": "Reason",
+    "ru": "Причина"
+  },
+  "Sayt elanı": {
+    "az": "Sayt elanı",
+    "en": "Site announcement",
+    "ru": "Объявление сайта"
+  },
+  "Mətn": {
+    "az": "Mətn",
+    "en": "Text",
+    "ru": "Текст"
+  },
+  "Saytda göstər": {
+    "az": "Saytda göstər",
+    "en": "Show on site",
+    "ru": "Показывать на сайте"
+  },
+  "Yadda saxla": {
+    "az": "Yadda saxla",
+    "en": "Save",
+    "ru": "Сохранить"
+  },
+  "Hesabat müzakirəsi": {
+    "az": "Hesabat müzakirəsi",
+    "en": "Report discussion",
+    "ru": "Обсуждение отчёта"
+  },
+  "İzahınız": {
+    "az": "İzahınız",
+    "en": "Your explanation",
+    "ru": "Ваше пояснение"
+  },
+  "Hələ mesaj yoxdur.": {
+    "az": "Hələ mesaj yoxdur.",
+    "en": "No messages yet.",
+    "ru": "Сообщений пока нет."
+  },
+  "İstifadəçi profili": {
+    "az": "İstifadəçi profili",
+    "en": "User profile",
+    "ru": "Профиль пользователя"
+  },
+  "E-poçt təsdiqlənib": {
+    "az": "E-poçt təsdiqlənib",
+    "en": "Email verified",
+    "ru": "Почта подтверждена"
+  },
+  "E-poçt təsdiqlənməyib": {
+    "az": "E-poçt təsdiqlənməyib",
+    "en": "Email unverified",
+    "ru": "Почта не подтверждена"
+  },
+  "Mübahisəni bağla": {
+    "az": "Mübahisəni bağla",
+    "en": "Close dispute",
+    "ru": "Закрыть спор"
+  },
+  "Qərar və əsaslandırma": {
+    "az": "Qərar və əsaslandırma",
+    "en": "Decision and reasoning",
+    "ru": "Решение и обоснование"
+  },
+  "Bu qərar tərəflərə görünəcək. Hesabat statusu ayrıca dəyişdirilir.": {
+    "az": "Bu qərar tərəflərə görünəcək. Hesabat statusu ayrıca dəyişdirilir.",
+    "en": "Both parties will see this decision. Report status is changed separately.",
+    "ru": "Обе стороны увидят это решение. Статус отчёта изменяется отдельно."
+  },
+  "Şəkil boş olmamalı və 2 MB həddini keçməməlidir.": {
+    "az": "Şəkil boş olmamalı və 2 MB həddini keçməməlidir.",
+    "en": "The image must not be empty or exceed 2 MB.",
+    "ru": "Изображение не должно быть пустым или превышать 2 МБ."
+  },
+  "Şəkil yeniləndi.": {
+    "az": "Şəkil yeniləndi.",
+    "en": "Image updated.",
+    "ru": "Изображение обновлено."
+  },
+  "Şirkət portalında yüklədiyiniz loqo proqramın başlığında görünür.": {
+    "az": "Şirkət portalında yüklədiyiniz loqo proqramın başlığında görünür.",
+    "en": "The logo uploaded in the company portal appears in the program header.",
+    "ru": "Логотип из кабинета компании отображается в заголовке программы."
+  },
+  "Şirkətin izahı": {
+    "az": "Şirkətin izahı",
+    "en": "Company explanation",
+    "ru": "Пояснение компании"
+  },
+  "Müzakirə və izahlar": {
+    "az": "Müzakirə və izahlar",
+    "en": "Discussion and explanations",
+    "ru": "Обсуждение и пояснения"
+  },
+  "JPG, PNG və ya WebP şəkli seçin (maksimum 16 meqapiksel).": {
+    "az": "JPG, PNG və ya WebP şəkli seçin (maksimum 16 meqapiksel).",
+    "en": "Choose a JPG, PNG or WebP image (up to 16 megapixels).",
+    "ru": "Выберите JPG, PNG или WebP (до 16 мегапикселей)."
+  },
+  "Şəkil tapılmadı.": {
+    "az": "Şəkil tapılmadı.",
+    "en": "Image not found.",
+    "ru": "Изображение не найдено."
+  },
+  "İstifadəçi tapılmadı.": {
+    "az": "İstifadəçi tapılmadı.",
+    "en": "User not found.",
+    "ru": "Пользователь не найден."
+  },
+  "Admin hesabı bloklana bilməz.": {
+    "az": "Admin hesabı bloklana bilməz.",
+    "en": "Admin accounts cannot be blocked.",
+    "ru": "Аккаунт администратора нельзя заблокировать."
+  },
+  "Proqram admin tərəfindən dayandırılıb.": {
+    "az": "Proqram admin tərəfindən dayandırılıb.",
+    "en": "The program was suspended by an admin.",
+    "ru": "Программа приостановлена администратором."
+  },
+  "Tarix aralığı yanlışdır.": {
+    "az": "Tarix aralığı yanlışdır.",
+    "en": "Invalid date range.",
+    "ru": "Неверный диапазон дат."
+  },
+  "Mübahisə artıq bağlanıb.": {
+    "az": "Mübahisə artıq bağlanıb.",
+    "en": "The dispute is already closed.",
+    "ru": "Спор уже закрыт."
+  },
+  "Elan tapılmadı.": {
+    "az": "Elan tapılmadı.",
+    "en": "Announcement not found.",
+    "ru": "Объявление не найдено."
+  },
+  "Hesab müvəqqəti bloklanıb:": {
+    "az": "Hesab müvəqqəti bloklanıb:",
+    "en": "Account temporarily blocked:",
+    "ru": "Аккаунт временно заблокирован:"
   }
 };
 
@@ -2098,7 +2523,7 @@ function translateAttributes(element) {
   if (skip(element)) return;
   let records = attributes.get(element);
   if (!records) { records = {}; attributes.set(element,records); }
-  for (const name of ['placeholder','aria-label','title']) {
+  for (const name of ['placeholder','aria-label','title','alt']) {
     const current = element.getAttribute(name);
     if (current === null) { delete records[name]; continue; }
     let record = records[name];
@@ -2114,9 +2539,9 @@ function refresh() {
   observer?.disconnect();
   const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT);
   let node; while ((node = walker.nextNode())) translateText(node);
-  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(translateAttributes);
+  document.querySelectorAll('[placeholder],[aria-label],[title],[alt]').forEach(translateAttributes);
   document.querySelectorAll('[data-language-select]').forEach(selector=>{selector.value=language;});
-  observer?.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['placeholder','aria-label','title']});
+  observer?.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['placeholder','aria-label','title','alt']});
 }
 function setLanguage(value,save=true) {
   if (!supported.includes(value)) return;

@@ -21,4 +21,4 @@ Python 3.12 ilə virtual mühit yaradın, `pip install -r requirements.txt` işl
 
 `python -m uvicorn app.main:app --host 127.0.0.1 --port 8000` ilə açın. Məktub göndərmək üçün Brevo sazlamaları lazımdır. Yalnız lokal sınaq üçün `DEV_EMAIL_LOG=true` məktubları lokal fayla yazır; bunu internetdə aktivləşdirməyin.
 
-Testlər: `python -m pytest -q`. Bulud API testləri saxta cavablarla işləyir; real xidmət bağlantıları deploy zamanı ayrıca yoxlanmalıdır..
+Testlər: `python -m pytest -q`. Bulud API testləri saxta cavablarla işləyir; real xidmət bağlantıları deploy zamanı ayrıca yoxlanmalıdır...
